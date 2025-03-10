@@ -8,7 +8,7 @@ interface SuccessCardProps {
   tranId: string | string[];
 }
 const SuccessCard = ({ tranId }: SuccessCardProps) => {
-  console.log(tranId, "payment id");
+
   return (
     <div className="py-10">
       <div className="mx-auto py-10 p-8 max-w-md bg-blue-50 border border-blue-600 rounded-md text-center">

@@ -1,30 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
+"use client";
 import { useState } from "react";
 
 const testimonials = [
   {
     name: "John Doe",
     message:
-      "This bookstore has the best collection of books! Highly recommended.",
+      "TutorLink helped me find an amazing physics tutor! My grades have improved, and I feel much more confident in my studies.",
     img: "https://randomuser.me/api/portraits/men/1.jpg",
   },
   {
     name: "Jane Smith",
     message:
-      "Amazing service and great variety. I found exactly what I needed!",
+      "I love how easy it was to book a tutor. The platform is user-friendly, and the tutors are highly qualified!",
     img: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
     name: "Michael Johnson",
     message:
-      "A paradise for book lovers. The quality and service are top-notch.",
+      "My tutor explained complex math concepts in a way that finally made sense. I wish I had joined earlier!",
     img: "https://randomuser.me/api/portraits/men/3.jpg",
   },
   {
     name: "Emily Brown",
     message:
-      "I love the collection here! Such a cozy and welcoming atmosphere.",
+      "Great experience overall! The scheduling system is convenient, but I would love more subject options.",
     img: "https://randomuser.me/api/portraits/women/4.jpg",
   },
 ];
@@ -43,11 +43,11 @@ const Testimonial = () => {
     );
   };
   return (
-    <div>
-      <h1 className="text-3xl sm:text-3xl md:text-4xl xl:text-5xl text-center font-semibold py-10 ">
+    <div className="pt-16">
+      <h2 className="text-2xl md:text-4xl font-bold mt-4  text-center">
         {" "}
-        Customers <span className=" text-[#00a76b]">Review</span>
-      </h1>
+        Student Review
+      </h2>
       <div className="relative mb-24 w-full max-w-4xl mx-auto overflow-hidden rounded-lg bg-white shadow-lg p-6">
         <div
           className="flex transition-transform duration-700"
@@ -56,7 +56,7 @@ const Testimonial = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="min-w-full p-6 flex flex-col items-center text-center bg-gradient-to-r from-[#ecefec] via-[#f5f3ef] to-[#f6f4f0]"
+              className="min-w-full p-6 flex flex-col items-center text-center bg-blue-50"
             >
               <img
                 src={testimonial.img}
@@ -72,13 +72,13 @@ const Testimonial = () => {
         </div>
         <button
           onClick={prevSlide}
-          className="absolute inset-y-0 left-0 flex items-center justify-center w-12 h-full text-[#00a76b] text-4xl  focus:outline-none"
+          className="absolute inset-y-0 left-0 flex items-center justify-center w-12 h-full text-blue-600 text-4xl  focus:outline-none"
         >
           &#10094;
         </button>
         <button
           onClick={nextSlide}
-          className="absolute inset-y-0 right-0 flex items-center justify-center w-12 h-full text-[#00a76b] text-4xl focus:outline-none"
+          className="absolute inset-y-0 right-0 flex items-center justify-center w-12 h-full text-blue-600 text-4xl focus:outline-none"
         >
           &#10095;
         </button>
@@ -87,7 +87,7 @@ const Testimonial = () => {
             <span
               key={index}
               className={`size-3 border border-gray-400 rounded-full cursor-pointer ${
-                currentIndex === index ? "bg-[#00a76b] border-[#00a76b]" : ""
+                currentIndex === index ? "bg-blue-600 border-blue-600" : ""
               }`}
               onClick={() => setCurrentIndex(index)}
             />

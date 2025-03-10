@@ -1,5 +1,5 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -10,23 +10,39 @@ import {
 } from "@/components/ui/select";
 import { IUser } from "@/types";
 import TutorCard from "./TutorCard";
+import { useSearchParams } from "next/navigation";
 
 const FindTutors = ({ tutors }: { tutors: IUser[] }) => {
+  const searchParams = useSearchParams();
+  const initialSearchTerm = searchParams.get("search") || "";
   const [searchTerm, setSearchTerm] = useState("");
   const [subject, setSubject] = useState("All");
   const [rating, setRating] = useState("");
   const [priceSort, setPriceSort] = useState("");
   const [address, setAddress] = useState("");
+  useEffect(() => {
+    setSearchTerm(initialSearchTerm);
+  }, [initialSearchTerm]);
 
   const filteredTutors = tutors
     .filter((tutor) =>
-      searchTerm ? tutor.name?.toLowerCase().includes(searchTerm.toLowerCase()) : true
+      searchTerm
+        ? tutor.name?.toLowerCase().includes(searchTerm.toLowerCase())
+        : true
     )
-    .filter((tutor) => (subject !== "All" ? tutor.subjects?.includes(subject) : true))
-    .filter((tutor) => (address ? tutor.address?.toLowerCase().includes(address.toLowerCase()) : true))
+    .filter((tutor) =>
+      subject !== "All" ? tutor.subjects?.includes(subject) : true
+    )
+    .filter((tutor) =>
+      address
+        ? tutor.address?.toLowerCase().includes(address.toLowerCase())
+        : true
+    )
     .sort((a, b) => {
-      if (rating === "asc") return (a.averageRating ?? 0) - (b.averageRating ?? 0);
-      if (rating === "dsc") return (b.averageRating ?? 0) - (a.averageRating ?? 0);
+      if (rating === "asc")
+        return (a.averageRating ?? 0) - (b.averageRating ?? 0);
+      if (rating === "dsc")
+        return (b.averageRating ?? 0) - (a.averageRating ?? 0);
       return 0;
     })
     .sort((a, b) => {
@@ -52,8 +68,21 @@ const FindTutors = ({ tutors }: { tutors: IUser[] }) => {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="All">All</SelectItem>
-            {["Mathematics", "Physics", "English", "Biology", "Chemistry", "Higher Math", "Bangla", "General Science", "Accounting", "Economics"].map((subj) => (
-              <SelectItem key={subj} value={subj}>{subj}</SelectItem>
+            {[
+              "Mathematics",
+              "Physics",
+              "English",
+              "Biology",
+              "Chemistry",
+              "Higher Math",
+              "Bangla",
+              "General Science",
+              "Accounting",
+              "Economics",
+            ].map((subj) => (
+              <SelectItem key={subj} value={subj}>
+                {subj}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -89,7 +118,9 @@ const FindTutors = ({ tutors }: { tutors: IUser[] }) => {
 
       <div className="flex flex-wrap gap-12 justify-center items-center">
         {filteredTutors.length > 0 ? (
-          filteredTutors.map((tutor) => <TutorCard key={tutor.email} tutor={tutor} />)
+          filteredTutors.map((tutor) => (
+            <TutorCard key={tutor.email} tutor={tutor} />
+          ))
         ) : (
           <p className="text-center text-gray-500 w-full">No tutors found.</p>
         )}

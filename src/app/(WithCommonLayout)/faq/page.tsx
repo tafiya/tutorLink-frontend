@@ -3,7 +3,8 @@ import React, { useState } from "react";
 
 const Accordion: React.FC = () => {
   return (
-    <section className="relative overflow-hidden max-w-7xl mx-auto bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
+    <div className="bg-blue-50 ">
+    <section className="relative overflow-hidden max-w-7xl mx-auto pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
@@ -23,14 +24,15 @@ const Accordion: React.FC = () => {
         </div>
 
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 lg:w-1/2">
-            <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+          <div className="w-full px-4 lg:w-1/2 ">
+            <AccordionItem 
+              header="How do I find a tutor?"
+              text="You can browse our list of expert tutors by subject, grade level, or availability. Use filters to refine your search based on hourly rate, ratings, and location. Once you find a suitable tutor, you can send a hire request."
             />
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="How are payments processed?"
+              text="Payments are securely processed through SSLCommerz, Stripe, or PayPal. Once a tutor accepts your request, you can proceed with the payment. 
+              Your funds are securely held until the session is completed"
             />
             <AccordionItem
               header="How long we deliver your first blog post?"
@@ -39,21 +41,25 @@ const Accordion: React.FC = () => {
           </div>
           <div className="w-full px-4 lg:w-1/2">
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="What happens if a tutor rejects my request?"
+              text="If a tutor declines your request, you can either send a modified request (if allowed) or browse and hire another tutor that matches your requirements."
             />
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="How do I create a tutor profile?"
+              text="If you want to become a tutor, sign up as a tutor and complete your profile by adding subjects, availability, an hourly rate, 
+              and a brief bio. Your profile may be reviewed before being listed."
             />
             <AccordionItem
-              header="How long we deliver your first blog post?"
-              text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+              header="Can I get a refund if I cancel a session?"
+              text="Refund policies depend on the tutor’s cancellation policy. Some tutors offer full or partial refunds if you cancel within a certain timeframe. 
+              You can check the tutor’s profile for specific details."
             />
           </div>
         </div>
       </div>
     </section>
+    </div>
+
   );
 };
 

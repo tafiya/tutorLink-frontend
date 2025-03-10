@@ -1,10 +1,38 @@
-import BlogCard from "@/components/BlogCard";
+import BlogCard from "@/components/blog/BlogCard";
+import { getAllTBlogs } from "@/services/blogs";
 
-const BlogsPage = () => {
+const BlogsPage = async() => {
+   const {data}= await getAllTBlogs();
+ 
+
   return (
-    <>
-      <section className="bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
-        <div className="container">
+    <>        
+    <div className="w-full flex justify-center items-center bg-[#eff6ff] h-64 md:h-80 ">
+    <div className=" mt-16 text-center">
+    <span className="block mb-2 text-lg font-semibold text-orange-500"> Our Blogs </span>
+            <h2
+              className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px] dark:text-white"
+            >
+              Our Recent News
+            </h2>
+            <p className="text-base text-body-color dark:text-dark-6">
+            Stay Informed & Inspired: The Latest in Education, Tutoring, and Learning Strategies
+            </p>
+      {/* <h2 className=" text-center text-blue-600 text-lg font-medium mt-3">
+        {" "}
+        All The Tutors
+      </h2> */}
+    </div>
+  </div>
+      <section className="bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-24">
+        <div className="max-w-7xl mx-auto justify-center items-center flex flex-wrap gap-12">
+          {
+               // eslint-disable-next-line @typescript-eslint/no-explicit-any
+               data?.map((blog:any) => <BlogCard key={blog.id} blog={blog} />)
+          }
+
+        </div>
+        {/* <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
@@ -23,26 +51,9 @@ const BlogsPage = () => {
           </div>
 
           <div className="-mx-4 flex flex-wrap">
-            <BlogCard
-              date="Dec 22, 2023"
-              CardTitle="Meet AutoManage, the best AI management tools"
-              CardDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              image="https://i.ibb.co/Cnwd4q6/image-01.jpg"
-            />
-            <BlogCard
-              date="Dec 22, 2023"
-              CardTitle="Meet AutoManage, the best AI management tools"
-              CardDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              image="https://i.ibb.co/Y23YC07/image-02.jpg"
-            />
-            <BlogCard
-              date="Dec 22, 2023"
-              CardTitle="Meet AutoManage, the best AI management tools"
-              CardDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-              image="https://i.ibb.co/7jdcnwn/image-03.jpg"
-            />
+      
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

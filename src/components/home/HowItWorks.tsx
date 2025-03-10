@@ -27,8 +27,9 @@ const HowItWorks = () => {
     ];
   
     return (
-      <section className="py-12 bg-blue-50 text-center px-4">
-        <h3 className="text-blue-500 font-semibold flex justify-center items-center gap-2">
+      <div className="bg-blue-50">
+  <section className="py-24 max-w-7xl mx-auto  text-center px-4">
+        <h3 className="text-orange-500  font-semibold flex justify-center items-center gap-2">
           <span>📘</span> Working Process
         </h3>
         <h2 className="text-2xl md:text-3xl font-bold mt-2">How It Works For Tutors</h2>
@@ -50,6 +51,8 @@ const HowItWorks = () => {
           ))}
         </div>
       </section>
+      </div>
+    
     );
   };
   

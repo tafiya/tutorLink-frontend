@@ -4,7 +4,7 @@ import React from 'react';
 
 const TutorsPage =async () => {
     const data= await getAllTutors();
-    console.log(data?.data)
+
     const tutors = data?.data;
     return (
         <div>

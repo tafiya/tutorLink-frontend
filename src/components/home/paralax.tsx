@@ -1,25 +1,16 @@
-import Image from "next/image";
-import paralax from "../../assets/paralaxImage.jpg";
+
 const Parallax = () => {
   return (
-    <section className="relative h-[400px] flex items-center justify-center mb-12">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src={paralax} // Place the image in the public folder
-          alt="Parallax Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
-
-      {/* Overlay */}
-      <div className="absolute inset-0  bg-opacity-50 flex items-center justify-center">
-        <h1 className="text-white text-2xl md:text-4xl font-bold text-center px-4">
-          A reader lives a thousand lives before he dies...
-          <br />
-          The man who never reads lives only one.
+    <section
+      className="relative lg:h-[650px] md:h-[550px] h-[450px]  bg-fixed bg-center bg-cover flex items-center justify-center"
+      style={{
+        backgroundImage:
+          "url('https://res.cloudinary.com/demnpqwx3/image/upload/v1741543984/paralaxImage_vlwksk.jpg')",
+      }}
+    >
+      <div className="bg-black/50 bg-opacity-50 w-full h-full flex items-center justify-center">
+        <h1 className="text-white text-2xl md:text-4xl font-bold text-center md:leading-14 leading-10 px-4">
+        🌟 Elevate Your Learning Journey with Expert <br /> Tutors, Personalized Lessons,<br />  and  Flexible Scheduling for a Brighter Future! 🚀
         </h1>
       </div>
     </section>

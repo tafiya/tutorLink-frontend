@@ -33,7 +33,7 @@ const StudentRequest = () => {
       const fetchRequests = async () => {
           setLoading(true);
           const data = await getStudentRequests(user.email);
-          console.log('student request data',data.data)
+      
           if (data?.status !== false) {
               setRequests(data.data);
           }

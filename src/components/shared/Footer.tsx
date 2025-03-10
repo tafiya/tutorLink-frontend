@@ -1,19 +1,20 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+    <section className="py-10 bg-blue-50 sm:pt-16 lg:pt-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
           {/* Logo and Social Media Links */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
             <Image
-              className="w-auto h-9"
-              src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg"
+              // className="w-auto h-9"
+              src="https://res.cloudinary.com/demnpqwx3/image/upload/v1741507615/TutorLink_ffs63d.png"
               alt="Logo"
               width={120}
-              height={36}
+              height={200}
             />
 
             <p className="text-base leading-relaxed text-gray-600 mt-7">
@@ -109,36 +110,36 @@ const Footer = () => {
             </p>
             <ul className="mt-6 space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about"
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/tutors"
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
-                  Features
-                </a>
+                  Tutors
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/blogs"
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
-                  Works
-                </a>
+                  Blogs
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/contact"
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
-                  Career
-                </a>
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -215,7 +216,7 @@ const Footer = () => {
         <hr className="mt-16 mb-10 border-gray-200" />
 
         <p className="text-sm text-center text-gray-600">
-          © Copyright 2021, All Rights Reserved by Postcraft
+          © Copyright 2021, All Rights Reserved by TutorLink
         </p>
       </div>
     </section>

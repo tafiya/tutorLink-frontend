@@ -83,7 +83,7 @@ const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data.role);
+ 
     if(data.role==="Tutor")
     {
       const formattedData = {

@@ -1,10 +1,16 @@
-import { Video, Users, Clock, BadgeCheck } from "lucide-react";
+import {  Users, BadgeCheck, UserRoundSearch, BadgeDollarSign } from "lucide-react";
 
 const features = [
   {
-    icon: <Video size={40} />,
-    title: "50,000 online courses",
-    description: "Enjoy a variety of fresh topics",
+    icon: <UserRoundSearch size={40} />,
+    title: "Find Tutors Fast",
+    description: "Connect with expert tutors in minutes",
+  },
+
+  {
+    icon: <BadgeDollarSign size={40} />,
+    title: "Secure Payments",
+    description: "Safe and hassle-free transactions",
   },
   {
     icon: <Users size={40} />,
@@ -12,14 +18,9 @@ const features = [
     description: "Find the right instructor for you",
   },
   {
-    icon: <Clock size={40} />,
-    title: "Life time access",
-    description: "Learn on your schedule",
-  },
-  {
     icon: <BadgeCheck size={40} />,
-    title: "Get Certificate",
-    description: "When Courses Complete",
+    title: "Verified Profiles",
+    description: "Trusted tutors with authentic credentials",
   },
 ];
 

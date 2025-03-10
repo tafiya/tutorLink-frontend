@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import clsx from "clsx";
-import { LogIn, ShoppingCart } from "lucide-react";
+import { LogIn } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -12,7 +11,14 @@ import logo from "../../assets/TutorLink.png";
 import { Button } from "../ui/button";
 import { useUser } from "@/context/UserContext";
 import { logout } from "@/services/AuthServices";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import { protectedRoutes } from "@/contants";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
@@ -22,7 +28,6 @@ const Navbar = () => {
   const { user, setIsLoading } = useUser();
   const location = usePathname();
   const router = useRouter();
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +65,10 @@ const Navbar = () => {
     {
       labe: "FAQ",
       link: "/faq",
+    },
+    {
+      labe: "Contact",
+      link: "/contact",
     },
   ];
   return (
@@ -128,33 +137,19 @@ const Navbar = () => {
 
         {/* last section */}
         <section className="flex items-center gap-4">
-          {/* cart icon */}
-          <Link href="/cart" className="relative">
-            <ShoppingCart size={20} />
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              2
-            </span>
-          </Link>
-        
-
-          
           {/* <CartSheet></CartSheet> */}
-          {user? (
+          {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger>
-               
-              <Avatar>
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>User</AvatarFallback>
-                  </Avatar>
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarFallback>User</AvatarFallback>
+                </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuLabel>{user.role}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className=" uppercase text-lg">
-                  {/* {userInfo?.name} */}
-                  {user?.name}
-                </DropdownMenuItem>
+
                 {user.role == "Student" ? (
                   <DropdownMenuItem>
                     <Link href="/student/profile">DashBoard</Link>
@@ -162,7 +157,7 @@ const Navbar = () => {
                 ) : (
                   <DropdownMenuItem>
                     {" "}
-                    <Link href="/tutor/profile">My Profile</Link>
+                    <Link href="/tutor/profile">DashBoard</Link>
                   </DropdownMenuItem>
                 )}
 
@@ -173,13 +168,14 @@ const Navbar = () => {
             </DropdownMenu>
           ) : (
             <Link href={"/register"}>
-            <Button
-            variant="outline"
-            className="bg-blue-600 text-white hover:text-blue-600 text-lg hover:border-blue-600 flex items-center gap-2 "
-          >
-            <LogIn />
-          Register
-          </Button></Link>
+              <Button
+                variant="outline"
+                className="bg-blue-600 text-white hover:text-blue-600 text-lg hover:border-blue-600 flex items-center gap-2 "
+              >
+                <LogIn />
+                Register
+              </Button>
+            </Link>
           )}
 
           {/* avtar img */}

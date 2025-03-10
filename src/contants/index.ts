@@ -1,8 +1,11 @@
-export const protectedRoutes = [
-      "/login",
-      "/create-shop",
+export const protectedRoutes = [ 
       "/tutor",
       "/tutor/:page",
       "/student",
       "/student/:page",
+      "/payment",
+      "/payment/:page",
+      "/success",
+      "/fail",
+      "/cancel"
     ];

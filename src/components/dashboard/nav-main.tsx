@@ -34,12 +34,13 @@ export function NavMain({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Menu</SidebarGroupLabel>
+      <SidebarGroupLabel className=" text-blue-600  text-xl">Menu</SidebarGroupLabel>
+      <hr className=" py-2" />
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip={item.title}>
+            <SidebarMenuItem className=" space-y-6">
+              <SidebarMenuButton className=" text-blue-600  text-lg mb-2"  asChild tooltip={item.title}>
                 <Link href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>

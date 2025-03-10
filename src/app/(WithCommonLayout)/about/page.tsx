@@ -1,7 +1,17 @@
+import AboutBanner from "@/components/about/AboutBanner";
+import EduAllSection from "@/components/about/EduAllSection";
+import InstructorsSection from "@/components/about/InstructorsSection";
+import StatsSection from "@/components/about/StatsSection";
+import HowItWorks from "@/components/home/HowItWorks";
+
 const AboutPage = () => {
   return (
-    <div>
-      <h2>This is from about page</h2>
+    <div className="">
+      <AboutBanner></AboutBanner>
+      <EduAllSection></EduAllSection>
+      <StatsSection></StatsSection>
+      <InstructorsSection></InstructorsSection>
+      <HowItWorks></HowItWorks>
     </div>
   );
 };

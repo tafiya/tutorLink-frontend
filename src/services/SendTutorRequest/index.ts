@@ -19,9 +19,7 @@ export const sendTutorRequest = async (tutorId: string, userEmail: string) => {
       return { success: false}
     }
   };
-  export const getAllRequests = async (
-
-  ) => {
+  export const getAllRequests = async () => {
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_API}/requests`,

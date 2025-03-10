@@ -30,7 +30,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     handleUser();
-    console.log("hi from user context")
+ 
   }, [isLoading]);
 
   return (

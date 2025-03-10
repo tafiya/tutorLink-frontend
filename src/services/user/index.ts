@@ -17,7 +17,7 @@ export const getAllUser = async () => {
       }
   
       const data = await res.json();
-      console.log("Fetched Users:", data);
+      
       return data;
     } catch (error: any) {
       console.error("Error fetching users:", error.message);

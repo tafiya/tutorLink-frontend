@@ -1,10 +1,11 @@
 import Image from "next/image";
 import tution1 from "../../assets/tution1.jpg";
 import tution2 from "../../assets/tution2.jpg";
+import Link from "next/link";
 export default function PersonalizedLearningSection() {
   return (
-    <section className="bg-gray-100 py-16 px-6 md:px-12">
-      <div className="container mx-auto flex flex-col md:flex-row items-center">
+    <section className=" py-24 max-w-7xl mx-auto ">
+      <div className="flex flex-col md:flex-row items-center">
         {/* Image Section */}
         <div className="relative w-full md:w-1/2 flex justify-center">
           <div className="relative">
@@ -16,8 +17,9 @@ export default function PersonalizedLearningSection() {
               className="rounded-lg shadow-lg"
             />
             <div className="absolute top-0 left-0 bg-orange-500 text-white rounded-full px-4 py-2 text-center shadow-md">
-              <p className="text-lg font-bold">12K <span className="text-sm">Community</span> </p>
-          
+              <p className="text-lg font-bold">
+                12K <span className="text-sm">Community</span>{" "}
+              </p>
             </div>
           </div>
           <div className="absolute bottom-[-40px] left-2">
@@ -33,8 +35,10 @@ export default function PersonalizedLearningSection() {
 
         {/* Text Section */}
         <div className="md:w-1/2 mt-12 md:mt-0">
-          <h3 className="text-blue-800 font-semibold">Request a Class for FREE Trial</h3>
-          <h2 className="text-3xl font-bold mt-2">
+          <h3 className="text-orange-500 font-semibold">
+            Request a Class for FREE Trial
+          </h3>
+          <h2 className="text-2xl md:text-4xl  font-bold mt-2">
             Experience Personalized Learning Today
           </h2>
           <p className="text-gray-600 mt-4">
@@ -59,9 +63,11 @@ export default function PersonalizedLearningSection() {
           </div>
 
           {/* Button */}
-          <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">
-            Register Now →
-          </button>
+          <Link href={"/register"}>
+            <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">
+              Register Now →
+            </button>
+          </Link>
         </div>
       </div>
     </section>

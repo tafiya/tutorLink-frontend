@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 
 const PaymentSuccess = () => {
   const {tranId}  = useParams();
-  console.log(tranId )
+
   return (
     <div className="w-full mx-auto max-w-7xl">
       {tranId ? (

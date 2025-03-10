@@ -6,7 +6,7 @@ const RequestStudentPage = async () => {
  
     
     const tutors = data?.data;
-    console.log("all the tutor",tutors)
+
     return (
         <div>
            <StudentRequestForm tutors={tutors}/>
