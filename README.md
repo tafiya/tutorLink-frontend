@@ -69,7 +69,7 @@ cd tutorlink
 
 ## Live Link
 Provide the link to the live deployed application:  
- [Live Link](https://book-shop-frontend-project.vercel.app/)
+ [Live Link](https://tutor-link-frontend-project.vercel.app/)
 ## server-side GitHub Link
    [Live Link](https://github.com/tafiya/tutorLink-server)
 
