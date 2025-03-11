@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import MyAllBookings from "@/components/dashboard/turorDashboard/MyAllBookings";
 
 import { getAllTutors } from "@/services/Tutor";

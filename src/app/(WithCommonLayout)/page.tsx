@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Banner from "@/components/home/Banner";
 import FeatureTutors from "./../../components/home/FeatureTutors/index";
 import BenefitsSection from "@/components/home/BeniftSection";
