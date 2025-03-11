@@ -71,5 +71,5 @@ Part-2:[Video Link](https://www.loom.com/share/eee6700c80794e1b851692b1ed94901a?
 Provide the link to the live deployed application:  
  [Live Link](https://book-shop-frontend-project.vercel.app/)
 ## server-side GitHub Link
-   [Live Link](https://github.com/tafiya/book-shop-server)
+   [Live Link](https://github.com/tafiya/tutorLink-server)
 
