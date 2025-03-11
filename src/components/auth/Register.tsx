@@ -37,7 +37,7 @@ import { Calendar } from "../ui/calendar";
 import { DateRange } from "react-day-picker";
 
 const RegisterForm = () => {
-const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
+  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const [signUp, setSignUp] = useState(false);
   const [uploading, setUploading] = useState(false);
   const form = useForm({
@@ -67,33 +67,31 @@ const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
       return null;
     }
   };
-    //  Handle file input change
-    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.files?.[0]) {
-        const imageUrl = await uploadImage(e.target.files[0]);
-        if (imageUrl) {
-          form.setValue("profilePicture", imageUrl);
-        }
+  //  Handle file input change
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.[0]) {
+      const imageUrl = await uploadImage(e.target.files[0]);
+      if (imageUrl) {
+        form.setValue("profilePicture", imageUrl);
       }
-    };
-// password part
+    }
+  };
+  // password part
   const password = form.watch("password");
   const passwordConfirm = form.watch("passwordConfirm");
 
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
- 
-    if(data.role==="Tutor")
-    {
+    if (data.role === "Tutor") {
       const formattedData = {
         ...data,
         availability: {
-          from: new Date(data.availability.from),  // Ensure from is a Date object
+          from: new Date(data.availability.from), // Ensure from is a Date object
           to: data.availability.to ? new Date(data.availability.to) : undefined, // Convert to if present
         },
-      }
-  
+      };
+
       try {
         const res = await registerUser(formattedData);
         if (res?.success) {
@@ -106,27 +104,21 @@ const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
       } catch (err: any) {
         console.error(err);
       }
-
-    }
-else{
-  try {
-    const res = await registerUser(data);
-    if (res?.success) {
-      toast.success(res?.message);
-      router.push("/");
     } else {
-      toast.error(res?.message);
+      try {
+        const res = await registerUser(data);
+        if (res?.success) {
+          toast.success(res?.message);
+          router.push("/");
+        } else {
+          toast.error(res?.message);
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (err: any) {
+        console.error(err);
+      }
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (err: any) {
-    console.error(err);
-  }
-}
-
-
   };
-
-
 
   return (
     <div className="md:w-[530px] w-[350px]  overflow-hidden rounded-lg border border-[#066ccb] p-4 shadow-xl bg-white dark:border-zinc-700 dark:bg-zinc-900">
@@ -157,10 +149,12 @@ else{
       </div>
       <div className="w-full flex-col items-center overflow-hidden sm:p-4">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
             className={`${
               signUp ? "h-full duration-300" : "invisible h-0 opacity-0"
-            } space-y-3 sm:space-y-3`}>
+            } space-y-3 sm:space-y-3`}
+          >
             <div className=" flex flex-wrap justify-between ">
               <FormField
                 control={form.control}
@@ -244,7 +238,7 @@ else{
             </div>
 
             <div className="flex flex-wrap justify-between">
-            <FormField
+              <FormField
                 control={form.control}
                 name="subjects"
                 render={({ field }) => (
@@ -253,7 +247,7 @@ else{
                     <FormControl>
                       <Input
                         className="p-5 border-[#066ccb]"
-                      placeholder="Enter subjects separated by commas"
+                        placeholder="Enter subjects separated by commas"
                         required
                         {...field}
                         value={field.value || ""}
@@ -263,16 +257,16 @@ else{
                   </FormItem>
                 )}
               />
-                 <FormField
+              <FormField
                 control={form.control}
-               name="gradeLevel"
+                name="gradeLevel"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className=" text-base">Grade Level</FormLabel>
                     <FormControl>
                       <Input
                         className="p-5 border-[#066ccb]"
-                      placeholder="Enter grade levels"
+                        placeholder="Enter grade levels"
                         required
                         {...field}
                         value={field.value || ""}
@@ -282,45 +276,41 @@ else{
                   </FormItem>
                 )}
               />
-
             </div>
 
-     
             <div className=" flex flex-wrap justify-between">
-            <div className="">
-              <Label className=" text-base ">User Image</Label>
-              <Input
-                className=" border-[#066ccb]"
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
+              <div className="">
+                <Label className=" text-base ">User Image</Label>
+                <Input
+                  className=" border-[#066ccb]"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                />
+              </div>
+              <FormField
+                control={form.control}
+                name="role"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Role</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger className=" border-[#066ccb] w-full">
+                          <SelectValue placeholder="Select your role" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Tutor">Tutor</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-          
-            </div>
-            <FormField
-              control={form.control}
-              name="role"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Role</FormLabel>
-                  <Select
-                  
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger   className=" border-[#066ccb] w-full">
-                        <SelectValue placeholder="Select your role" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Tutor">Tutor</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             </div>
             <div className=" ">
               <FormField
@@ -346,7 +336,7 @@ else{
               {/* {uploading && <p className="text-blue-500">Uploading image...</p>} */}
             </div>
             <div className=" flex flex-wrap justify-between">
-            <FormField
+              <FormField
                 control={form.control}
                 name="availability"
                 render={({ field }) => (
@@ -391,29 +381,32 @@ else{
                   </FormItem>
                 )}
               />
- 
-  <FormField
-  control={form.control}
-  name="price"
-  render={({ field }) => (
-    <FormItem>
-      <FormLabel className="text-base">Hourly Rate (Price)</FormLabel>
-      <FormControl>
-        <Input
-          type="number"
-          className="p-5 border-[#066ccb]"
-          placeholder="Enter hourly rate"
-          required
-          {...field}
-          onChange={(e) => field.onChange(Number(e.target.value) || 0)} // 🔹 Convert to number
-          value={field.value ?? ""} // Ensures empty state is handled correctly
-        />
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
-            
+
+              <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-base">
+                      Hourly Rate (Price)
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        className="p-5 border-[#066ccb]"
+                        placeholder="Enter hourly rate"
+                        required
+                        {...field}
+                        onChange={(e) =>
+                          field.onChange(Number(e.target.value) || 0)
+                        } // 🔹 Convert to number
+                        value={field.value ?? ""} // Ensures empty state is handled correctly
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
 
             <div className="flex flex-wrap justify-between ">
@@ -461,15 +454,31 @@ else{
                 )}
               />
             </div>
-            <Button type="submit" className=" w-full bg-[#066ccb] hover:bg-blue-600/40 hover:text-[#066ccb] text-lg hover:border-[#066ccb]" disabled={uploading}>
+            <Button
+              type="submit"
+              className=" w-full bg-[#066ccb] hover:bg-blue-600/40 hover:text-[#066ccb] text-lg hover:border-[#066ccb]"
+              disabled={uploading}
+            >
               {isSubmitting ? "Registering...." : "Register"}
             </Button>
           </form>
+          {/* <p className=" text-base pt-4">
+            Already have an account?{" "}
+            <Link
+              href="/login"
+              className=" text-lg font-semibold text-[#066ccb] hover:underline "
+            >
+              Login
+            </Link>
+          </p> */}
         </Form>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}  className={`${
-            signUp ? "h-0 opacity-0" : "h-full duration-300"
-          } space-y-3 sm:space-y-3`}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className={`${
+              signUp ? "h-0 opacity-0" : "h-full duration-300"
+            } space-y-3 sm:space-y-3`}
+          >
             <div className=" flex flex-wrap justify-between ">
               <FormField
                 control={form.control}
@@ -560,35 +569,33 @@ else{
                 accept="image/*"
                 onChange={handleFileChange}
               />
-          
             </div>
             <div className=" ">
-            <FormField
-              control={form.control}
-              name="role"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Role</FormLabel>
-                  <Select
-                  
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger   className=" border-[#066ccb] w-full">
-                        <SelectValue placeholder="Select your role" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Student">Student</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name="role"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Role</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger className=" border-[#066ccb] w-full">
+                          <SelectValue placeholder="Select your role" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Student">Student</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
-         
+
             <div className=" flex flex-wrap justify-between ">
               <FormField
                 control={form.control}
@@ -635,15 +642,17 @@ else{
               />
             </div>
 
-         
-
-
-            <Button type="submit" className=" w-full bg-[#066ccb] hover:bg-blue-600/40 hover:text-[#066ccb] text-lg hover:border-[#066ccb]" disabled={uploading}>
+            <Button
+              type="submit"
+              className=" w-full bg-[#066ccb] hover:bg-blue-600/40 hover:text-[#066ccb] text-lg hover:border-[#066ccb]"
+              disabled={uploading}
+            >
               {isSubmitting ? "Registering...." : "Register"}
             </Button>
           </form>
         </Form>
-        <p className=" text-base pt-4">
+  
+        <p className=" text-base mt-16">
           Already have an account?{" "}
           <Link
             href="/login"
