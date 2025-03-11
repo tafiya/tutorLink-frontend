@@ -38,14 +38,13 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
     if (!tutor?._id) return; // Prevents calling API with undefined ID
 
     const response = await getReviews(tutor._id);
-    
+
     if (response.success) {
       setReviews(response.data);
     }
   };
 
   useEffect(() => {
- 
     fetchReviews();
   }, [tutor?._id]);
 
@@ -53,6 +52,11 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
     return <p>Loading tutor data...</p>;
   }
   const handleReviewSubmit = async () => {
+    if (!user?.user?.email) {
+      toast.error("User Information is not available.");
+      router.push("/login");
+      return;
+    }
     if (!reviewText.trim()) {
       toast.error("Review cannot be empty!");
       return;
