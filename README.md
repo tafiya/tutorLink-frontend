@@ -42,3 +42,34 @@ TutorLink 🎓 is designed to bridge the gap between students and tutors, helpin
 ```bash
 git clone https://github.com/yourusername/tutorlink.git
 cd tutorlink
+```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and configure:
+   ```sh
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   SURJOPAY_KEY=your_surjopay_key
+   ```
+4. **Run the backend server:**
+   ```sh
+   npm run server
+   ```
+5. **Run the frontend:**
+   ```sh
+   npm start
+   ```
+
+## Provide a link to a video explaining the API design and functionality:  
+Part-1:[Video Link](https://www.loom.com/share/5214f56b3b1142a09fdf8ea881a77462?sid=960a8e0a-53b3-4277-b103-f2773fbb5bb0)
+Part-2:[Video Link](https://www.loom.com/share/eee6700c80794e1b851692b1ed94901a?sid=0adc7164-7d5c-4aa9-9ff0-c6b1e3c49db7)
+
+## Live Link
+Provide the link to the live deployed application:  
+ [Live Link](https://book-shop-frontend-project.vercel.app/)
+## server-side GitHub Link
+   [Live Link](https://github.com/tafiya/book-shop-server)
+
