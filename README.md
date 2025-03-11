@@ -64,8 +64,8 @@ cd tutorlink
    ```
 
 ## Provide a link to a video explaining the API design and functionality:  
-Part-1:[Video Link](https://www.loom.com/share/5214f56b3b1142a09fdf8ea881a77462?sid=960a8e0a-53b3-4277-b103-f2773fbb5bb0)
-Part-2:[Video Link](https://www.loom.com/share/eee6700c80794e1b851692b1ed94901a?sid=0adc7164-7d5c-4aa9-9ff0-c6b1e3c49db7)
+[Video Link](https://www.loom.com/share/577c35422a234fd696aba4b2ea1dec41?sid=d31daba3-0258-474e-b362-f4b758f18467)
+
 
 ## Live Link
 Provide the link to the live deployed application:  
