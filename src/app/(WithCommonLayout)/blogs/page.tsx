@@ -7,7 +7,7 @@ const BlogsPage = async () => {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center bg-[#eff6ff] h-64 md:h-80 ">
+      <div className="w-full flex justify-center items-center bg-gradient-to-b from-[#eff6ff]  via-[#eff6ff] to-white h-64 md:h-80 ">
         <div className=" mt-16 text-center">
           <span className="block mb-2 text-lg font-semibold text-orange-500">
             {" "}
@@ -26,7 +26,7 @@ const BlogsPage = async () => {
       </h2> */}
         </div>
       </div>
-      <section className="bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-24">
+      <section className="bg-white pb-10 pt-10 dark:bg-dark lg:pb-20 lg:pt-4">
         <div className="max-w-7xl mx-auto justify-center items-center flex flex-wrap gap-12">
           {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
