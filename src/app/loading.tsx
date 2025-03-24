@@ -1,7 +1,16 @@
+import Image from "next/image";
+import load from "../assets/loading.gif";
+
 const loading = () => {
   return (
-    <div>
-      <p className="text-center text-2xl text-blue-600"> Loading..</p>
+    <div className=" flex justify-center items-center border h-screen">
+      <Image
+        src={load}
+        height={200}
+        width={200}
+        alt="loading"
+        className="block mx-auto my-auto"
+      ></Image>
     </div>
   );
 };

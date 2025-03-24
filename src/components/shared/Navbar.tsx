@@ -75,7 +75,7 @@ const Navbar = () => {
     <div
       className={clsx(
         "fixed z-10 w-full items-center transition-all",
-        scrolling && "bg-white"
+        scrolling && "bg-blue-100 shadow-sm shadow-blue-200"
       )}
     >
       <nav className="flex justify-between px-8 items-center py-4  text-black max-w-7xl mx-auto ">

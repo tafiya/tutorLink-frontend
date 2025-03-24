@@ -1,4 +1,5 @@
 export const dynamic = "force-dynamic";
+import Spinner from "@/components/Spinner";
 import FindTutors from "@/components/tutor/Turors";
 import { getAllTutors } from "@/services/Tutor";
 import React, { Suspense } from "react";
@@ -22,7 +23,13 @@ const TutorsPage = async () => {
           </h2>
         </div>
       </div>
-      <Suspense fallback={<>loading..</>}>
+      <Suspense
+        fallback={
+          <>
+            <Spinner></Spinner>
+          </>
+        }
+      >
         <FindTutors tutors={tutors}></FindTutors>
       </Suspense>
     </div>

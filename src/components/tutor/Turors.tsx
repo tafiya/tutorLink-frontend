@@ -25,15 +25,15 @@ const FindTutors = ({ tutors }: { tutors: IUser[] }) => {
   }, [initialSearchTerm]);
 
   const filteredTutors = tutors
-    .filter((tutor) =>
+    ?.filter((tutor) =>
       searchTerm
         ? tutor.name?.toLowerCase().includes(searchTerm.toLowerCase())
         : true
     )
-    .filter((tutor) =>
+    ?.filter((tutor) =>
       subject !== "All" ? tutor.subjects?.includes(subject) : true
     )
-    .filter((tutor) =>
+    ?.filter((tutor) =>
       address
         ? tutor.address?.toLowerCase().includes(address.toLowerCase())
         : true
@@ -117,7 +117,7 @@ const FindTutors = ({ tutors }: { tutors: IUser[] }) => {
       </div>
 
       <div className="flex flex-wrap gap-12 justify-center items-center">
-        {filteredTutors.length > 0 ? (
+        {filteredTutors?.length > 0 ? (
           filteredTutors.map((tutor) => (
             <TutorCard key={tutor.email} tutor={tutor} />
           ))
