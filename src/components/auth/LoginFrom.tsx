@@ -20,6 +20,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 import { loginUser } from "@/services/AuthServices";
 import { useUser } from "@/context/UserContext";
+import { PiStudentBold } from "react-icons/pi";
+import { GiTeacher } from "react-icons/gi";
 
 const LoginFrom = () => {
   const form = useForm({
@@ -34,34 +36,31 @@ const LoginFrom = () => {
   const {
     formState: { isSubmitting },
   } = form;
-  const demoLogin = (role: "tutor" | "student") => {
+  const demoLogin = async (role: "tutor" | "student") => {
+    console.log(role);
     const demoCredentials = {
-      tutor: { email: "tutor@example.com", password: "password123" },
-      student: { email: "student@example.com", password: "password123" },
+      tutor: { email: "john@example.com", password: "Abcd1234" },
+      student: { email: "y@gmail.com", password: "Abcd1234" },
     };
 
     const data = demoCredentials[role];
 
-    const onSubmit: SubmitHandler<FieldValues> = async () => {
-      try {
-        const res = await loginUser(data);
-        setIsLoading(true);
-        if (res?.success) {
-          toast.success(res?.message);
-          if (redirect) {
-            router.push(redirect);
-          } else {
-            router.push("/");
-          }
+    try {
+      const res = await loginUser(data);
+      setIsLoading(true);
+      if (res?.success) {
+        toast.success(res?.message);
+        if (redirect) {
+          router.push(redirect);
         } else {
-          toast.error(res?.message);
+          router.push("/");
         }
-      } catch (err: any) {
-        console.error(err);
+      } else {
+        toast.error(res?.message);
       }
-    };
-
-    form.handleSubmit(onSubmit)();
+    } catch (err: any) {
+      console.error(err);
+    }
   };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
@@ -90,18 +89,22 @@ const LoginFrom = () => {
         Login
       </p>
       {/* Demo login buttons */}
-      <div className="mt-4 space-x-4 flex flex-col gap-4 items-center">
+      <div className="mt-4 space-x-4 flex flex-col gap-4 ">
         <Button
-          className="bg-blue-600 text-white hover:text-blue-600 hover:border-blue-600"
+          variant="outline"
+          className="bg-blue-600 w-full text-white py-5 hover:text-blue-600 hover:border-blue-600 flex items-center gap-2 "
           onClick={() => demoLogin("tutor")}
         >
+          {" "}
+          <GiTeacher size={"2rem"} />
           Demo Login as Tutor
         </Button>
         <Button
-          className="bg-blue-600 text-white hover:text-blue-600 hover:border-blue-600"
+          variant="outline"
+          className="bg-blue-600 text-white py-5  hover:text-blue-600 hover:border-blue-600 flex items-center gap-2 "
           onClick={() => demoLogin("student")}
         >
-          Demo Login as Student
+          <PiStudentBold size={"2rem"} /> Demo Login as Student
         </Button>
       </div>
       <Form {...form}>

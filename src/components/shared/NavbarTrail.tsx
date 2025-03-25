@@ -280,7 +280,7 @@ const Navbar = () => {
               <Link href={"/register"}>
                 <Button
                   variant="outline"
-                  className="c flex items-center gap-2 "
+                  className="bg-blue-600 text-white hover:text-blue-600 hover:border-blue-600 flex items-center gap-2 "
                 >
                   <LogIn />
                   SignUp
