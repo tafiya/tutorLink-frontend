@@ -33,14 +33,15 @@ const BenefitsSection = () => {
     <div className=" ">
       <section className="py-24  max-w-7xl mx-auto text-center px-4">
         <h3 className="text-orange-500 font-semibold">WHY CHOOSE US</h3>
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 mb-14">
-          Benefits of online tutoring services with us
+        <h2 className="text-2xl md:text-4xl text-gray-100 font-bold mt-4 mb-14">
+          Benefits of Online Tutoring Services With Us
         </h2>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-blue-50 shadow-lg rounded-xl p-6 flex flex-col items-center"
+              className="bg-blue-50 shadow-lg rounded-xl p-6 flex flex-col items-center transition duration-300 
+           hover:-translate hover:scale-105 duration-150 ease-in-out"
             >
               <div
                 className={`text-white ${benefit.bgColor} p-3 rounded-full text-2xl`}

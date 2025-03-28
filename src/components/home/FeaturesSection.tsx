@@ -29,7 +29,8 @@ export default function FeaturesSection() {
     <section className="bg-blue-600 text-white py-10">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {features.map((feature, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div key={index} className="flex flex-col items-center transition duration-300 
+           hover:-translate hover:scale-105 duration-150 ease-in-out">
             <div className="bg-white p-3 rounded-full text-blue-600 mb-4">
               {feature.icon}
             </div>

@@ -89,8 +89,8 @@ const Navbar = () => {
   return (
     <div
       className={clsx(
-        "fixed z-10 w-full transition-all",
-        scrolling && "bg-blue-100 shadow-sm shadow-blue-200"
+        "fixed z-10 w-full transition-all text-white",
+        scrolling && "bg-blue-100 shadow-sm shadow-blue-200 text-black"
       )}
     >
       <nav className="flex justify-between px-8 items-center py-2 max-w-7xl mx-auto">
@@ -115,7 +115,11 @@ const Navbar = () => {
                 <button
                   onMouseEnter={() => setMegaMenuOpen(true)}
                   onMouseLeave={() => setMegaMenuOpen(false)}
-                  className="flex items-center py-3 gap-1 font-semibold"
+                  className={clsx(
+                    "flex items-center py-3 gap-1  font-semibold",
+                    scrolling &&
+                      "flex items-center py-3 gap-1  font-semibold text-black"
+                  )}
                 >
                   {menu.name}{" "}
                   {isMegaMenuOpen ? (
@@ -131,10 +135,10 @@ const Navbar = () => {
                     onMouseLeave={() => setMegaMenuOpen(false)}
                     className="absolute left-0 top-full bg-white w-[650px] shadow-md rounded-md p-4 flex gap-6"
                   >
-                    <div className="grid gap-5 lg:grid-cols-3">
+                    <div className="grid gap-5 lg:grid-cols-3 text-black">
                       {menu.subMenu.map((section, index) => (
                         <div key={index}>
-                          <h3 className="mb-3 text-sm font-semibold text-dark dark:text-white">
+                          <h3 className="mb-3 text-sm font-semibold ">
                             {section.title}
                           </h3>
                           <div className="space-y-2">
@@ -162,7 +166,9 @@ const Navbar = () => {
                   "font-semibold",
                   location === menu.href
                     ? "text-blue-600 underline"
-                    : "hover:text-blue-600"
+                    : scrolling
+                    ? "text-black"
+                    : "text-white hover:text-blue-600"
                 )}
                 href={menu.href ?? ""}
               >
@@ -271,7 +277,7 @@ const Navbar = () => {
               <Link href={"/login"}>
                 <Button
                   variant="outline"
-                  className="hover:bg-blue-600 hover:text-white text-blue-600 border-blue-600 flex items-center gap-2 "
+                  className="hover:bg-blue-600 bg-white shadow-lg shadow-blue-600 hover:text-white text-blue-600 border-blue-600 flex items-center gap-2 "
                 >
                   <LogIn />
                   Login
@@ -280,7 +286,7 @@ const Navbar = () => {
               <Link href={"/register"}>
                 <Button
                   variant="outline"
-                  className="bg-blue-600 text-white hover:text-blue-600 hover:border-blue-600 flex items-center gap-2 "
+                  className="bg-blue-600 text-white shadow-lg shadow-blue-600 hover:text-blue-600 border-blue-600 flex items-center gap-2 "
                 >
                   <LogIn />
                   SignUp

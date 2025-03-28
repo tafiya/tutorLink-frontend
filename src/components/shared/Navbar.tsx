@@ -92,15 +92,15 @@ const Navbar = () => {
             </Link>
           </section>
         </div>
-        <div className=" flex items-center gap-8">
+        <div className=" flex items-center text-white gap-8">
           {navlinks.map((d, i) => (
             <Link
               key={i}
               className={clsx(
-                "hidden lg:block font-semibold hover:underline",
+                "hidden lg:block font-semibold  hover:underline",
                 location === d.link
-                  ? "text-blue-600 underline"
-                  : "hover:text-blue-600"
+                  ? "text-white underline"
+                  : "text-blue-600 hover:text-white"
               )}
               href={d.link}
             >
