@@ -34,7 +34,8 @@ const Banner = () => {
                   Guidance and Personalized Support Today!
                 </p>
 
-                <div className="mt-8 sm:mt-10">
+                <div className="mt-8 sm:mt-10 transition duration-300 
+           hover:-translate hover:scale-105 duration-150 ease-in-out">
                   <div className="relative p-2 group sm:rounded-xl sm:focus-within:ring-1
                    sm:focus-within:ring-blue-600 sm:focus-within:border-blue-600 ">
                     <input

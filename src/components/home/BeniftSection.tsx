@@ -40,8 +40,8 @@ const BenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-blue-50 shadow-lg rounded-xl p-6 flex flex-col items-center transition duration-300 
-           hover:-translate hover:scale-105 duration-150 ease-in-out"
+              className="bg-blue-50 rounded-xl p-6 flex flex-col items-center transition duration-300 
+           hover:-translate hover:scale-105 duration-150 ease-in-out shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-lg hover:shadow-blue-600"
             >
               <div
                 className={`text-white ${benefit.bgColor} p-3 rounded-full text-2xl`}
