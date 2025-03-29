@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "tutorlink-frontend"
+    // "liveServer.settings.multiRootWorkspaceName": "tutorlink-frontend",
+      "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
