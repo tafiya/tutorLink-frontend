@@ -165,15 +165,15 @@ const Navbar = () => {
                 className={clsx(
                   "font-semibold",
                   location === menu.href
-                    ? "text-blue-600 underline"
+                    ? "text-blue-600 font-semibold  bg-gray-800 rounded-lg px-3"
                     : scrolling
-                    ? "text-black"
-                    : "text-white hover:text-blue-600"
+                    ? "text-black group flex  cursor-pointer flex-col hover:text-blue-600"
+                    : "text-white hover:text-blue-600 group flex  cursor-pointer flex-col"
                 )}
                 href={menu.href ?? ""}
               >
                 {menu.name}
-                <span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             )
           )}

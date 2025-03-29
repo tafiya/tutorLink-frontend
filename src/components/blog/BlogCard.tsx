@@ -18,7 +18,7 @@ const truncateText = (title: string, wordLimit: number) => {
 }  
 const BlogCard: React.FC<BlogProps> = ({ blog }) => {
   return (
-    <div className="bg-white shadow-md rounded-2xl overflow-hidden transition-transform hover:scale-105">
+    <div className="bg-white shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-lg hover:shadow-blue-600 rounded-2xl overflow-hidden transition-transform hover:scale-105">
     <div className="relative">
       <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover" />
       <span className="absolute top-2 right-2 bg-green-600 text-white text-sm px-3 py-1 rounded-md">
