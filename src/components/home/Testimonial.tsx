@@ -43,10 +43,10 @@ const Testimonial = () => {
     );
   };
   return (
-    <div className="pt-16">
-      <h2 className="text-2xl md:text-4xl font-bold mt-4  text-center">
+    <div className="">
+      <h2 className="text-2xl md:text-4xl font-bold mb-12 text-gray-100 text-center">
         {" "}
-        Student Review
+        Success Stories
       </h2>
       <div className="relative mb-24 w-full max-w-4xl mx-auto overflow-hidden rounded-lg bg-white shadow-lg p-6">
         <div

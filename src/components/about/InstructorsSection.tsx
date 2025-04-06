@@ -7,10 +7,10 @@ const InstructorsSection = async () => {
   const data = await getAllTutors();
   const tutors: IUser[] = data?.data || [];
   return (
-    <section className="py-16 bg-white">
+    <section className="pb-28 ">
       <div className="max-w-6xl mx-auto text-center">
         <h4 className="text-orange-500  font-semibold">Course Instructors</h4>
-        <h2 className="text-4xl font-bold mt-2">
+        <h2 className="text-4xl text-gray-200 font-bold mt-2">
           Meet our <br /> Class Instructors
         </h2>
       </div>
@@ -18,15 +18,15 @@ const InstructorsSection = async () => {
         {tutors.map((instructor, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center  shadow-blue-100 hover:shadow-blue-200 rounded-lg hover:shadow-xl shadow-lg py-10"
+            className="flex flex-col items-center text-center duration-300 hover:-translate hover:scale-105 duration-150 ease-in-out  shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-blue-600 rounded-lg hover:shadow-xl  py-10"
           >
             <img
               src={instructor.profilePicture}
               alt={instructor.name}
               className="w-24 h-24 rounded-full border-4 border-gray-200 shadow-md"
             />
-            <h3 className="mt-4 text-lg font-semibold">{instructor.name}</h3>
-            <p className="text-gray-500">{instructor.role}</p>
+            <h3 className="mt-4 text-lg font-semibold text-gray-300">{instructor.name}</h3>
+            <p className="text-gray-300">{instructor.role}</p>
           </div>
         ))}
       </div>

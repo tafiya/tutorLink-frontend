@@ -29,12 +29,12 @@ export default function StatsSection() {
   ];
 
   return (
-    <div className="max-7xl mx-auto">
-      <div className="  flex flex-wrap justify-center items-center gap-6 px-4 py-16 bg-[#eff6ff] text-center">
+
+      <div className=" max-7xl mx-auto flex flex-wrap justify-center items-center gap-12 py-28  text-center">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center p-6 rounded-lg shadow-md ${stat.bg}`}
+            className={`flex flex-col items-center p-6 rounded-lg duration-300 hover:-translate hover:scale-105 duration-150 ease-in-out shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-lg hover:shadow-blue-600 ${stat.bg}`}
           >
             <div className="bg-white p-3 rounded-full shadow-md">
               {stat.icon}
@@ -44,6 +44,6 @@ export default function StatsSection() {
           </div>
         ))}
       </div>
-    </div>
+  
   );
 }
