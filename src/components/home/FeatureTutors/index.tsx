@@ -1,16 +1,24 @@
+'use client';
 import React from 'react';
-import { getAllTutors } from './../../../services/Tutor/index';
+// import { getAllTutors } from './../../../services/Tutor/index';
 import { IUser } from '@/types';
 import TutorCard from './../../tutor/TutorCard';
-import Link from 'next/link';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
 
-const FeatureTutors = async () => {
-  const data = await getAllTutors();
-  const tutors: IUser[] = data?.data || [];
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+interface Props {
+  tutors: IUser[];
+}
+
+const FeatureTutors: React.FC<Props> = ({ tutors }) => {
   return (
+
     <div
-      className="max-w-7xl mx-auto border py-12 px-3 rounded-lg border-black  mb-12 shadow-[0px_0px_15px_rgba(37,99,235,0.6)] 
+      className="max-w-7xl mx-auto border py-12 px-3 rounded-lg border-black shadow-[0px_0px_15px_rgba(37,99,235,0.6)] 
   "
     >
       <div className="">
@@ -21,23 +29,36 @@ const FeatureTutors = async () => {
           {' '}
           Expert tutors. Personalized learning
         </h2>
-        <div className="flex flex-wrap justify-center gap-12">
-          {tutors.slice(0, 3).map((tutor: IUser, i: number) => (
-            <TutorCard key={i} tutor={tutor}></TutorCard>
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={3}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          navigation={{
+            nextEl: '.custom-prev-button',
+            prevEl: '.custom-next-button',
+          }}
+          loop={true}
+          breakpoints={{
+            350: { slidesPerView: 1 },
+            480: { slidesPerView: 1 },
+            640: { slidesPerView: 1 },
+            873: { slidesPerView: 2 },
+            1080: { slidesPerView: 2 },
+            1280: { slidesPerView: 3 },
+          }}
+        >
+          {' '}
+          {tutors.map((tutor: IUser) => (
+            <SwiperSlide key={tutor._id} className="cursor-pointer  ">
+              <TutorCard tutor={tutor}></TutorCard>
+            </SwiperSlide>
           ))}
-        </div>
-   
-        <div className=" flex justify-center mt-12">
-          <Link href={'/tutors'}>
-            <button
-              className="mt-6 bg-blue-600 shadow-lg shadow-blue-600 hover:bg-blue-700 text-white
-           font-bold py-3 px-6 rounded-lg transition duration-300 
-           hover:-translate hover:scale-105 duration-150 ease-in-out"
-            >
-              View All
-            </button>
-          </Link>
-        </div>
+        </Swiper>
       </div>
     </div>
   );

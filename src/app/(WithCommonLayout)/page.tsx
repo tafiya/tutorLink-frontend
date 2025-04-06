@@ -1,12 +1,12 @@
 export const dynamic = "force-dynamic";
 import Banner from "@/components/home/Banner";
-import FeatureTutors from "./../../components/home/FeatureTutors/index";
 import BenefitsSection from "@/components/home/BeniftSection";
 import PersonalizedLearning from "@/components/home/PersonalizedLearning";
 import Testimonial from "@/components/home/Testimonial";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import Parallax from "@/components/home/paralax";
 import BlogArticles from "@/components/home/BlogArticles";
+import FeatureTutorsWrapper from "@/components/home/FeatureTutors/FeatureTutorsWrapper";
 
 const HomePage = () => {
   return (
@@ -14,7 +14,7 @@ const HomePage = () => {
       <Banner></Banner>
       <FeaturesSection></FeaturesSection>
       <BenefitsSection></BenefitsSection>
-      <FeatureTutors></FeatureTutors>
+      <FeatureTutorsWrapper></FeatureTutorsWrapper>
       <Parallax></Parallax>
       <PersonalizedLearning></PersonalizedLearning>
       <BlogArticles></BlogArticles>

@@ -1,3 +1,4 @@
+"use client"
 import { IUser } from '@/types';
 import { MapPin, ScanEye } from 'lucide-react';
 import React from 'react';

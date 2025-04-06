@@ -1,12 +1,12 @@
-"use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import banner from "../../assets/banner.png";
-import toast from "react-hot-toast";
+'use client';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import banner from '../../assets/banner.png';
+import toast from 'react-hot-toast';
 
 const Banner = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const router = useRouter();
 
   const handleSearch = () => {
@@ -15,29 +15,35 @@ const Banner = () => {
     if (trimmedSearch) {
       router.push(`/tutors?search=${encodeURIComponent(trimmedSearch)}`);
     } else {
-      toast.error("Please type for search");
+      toast.error('Please type for search');
       // router.push(`/tutors`); // Redirect to tutors page without query params
     }
   };
   return (
     <div className=" ">
-      <section className="pt-32 pb-12 sm:pb-16 ">
+      <section className=" sm:pt-48 pt-32 pb-12 sm:pb-24 ">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-16">
             <div>
               <div className="text-center lg:text-left">
                 <h1 className="text-4xl font-bold leading-tight text-gray-100 sm:text-5xl sm:leading-tight lg:leading-tight lg:text-6xl font-pj">
-                  Best <span className="text-blue-600">Tutoring </span>Platform <span className="text-blue-600">For</span> Online <span className="text-blue-600">Tuitions </span> 
+                  Best <span className="text-blue-600">Tutoring </span>Platform{' '}
+                  <span className="text-blue-600">For</span> Online{' '}
+                  <span className="text-blue-600">Tuitions </span>
                 </h1>
                 <p className="mt-2 text-lg text-gray-200 sm:mt-8 font-inter">
                   Find the Perfect Tutor Near You: Enhance Learning with Expert
                   Guidance and Personalized Support Today!
                 </p>
 
-                <div className="mt-8 sm:mt-10 transition duration-300 
-           hover:-translate hover:scale-105 duration-150 ease-in-out">
-                  <div className="relative p-2 group sm:rounded-xl sm:focus-within:ring-1
-                   sm:focus-within:ring-blue-600 sm:focus-within:border-blue-600 ">
+                <div
+                  className="mt-8 sm:mt-10 transition duration-300 
+           hover:-translate hover:scale-105 duration-150 ease-in-out"
+                >
+                  <div
+                    className="relative p-2 group sm:rounded-xl sm:focus-within:ring-1
+                   sm:focus-within:ring-blue-600 sm:focus-within:border-blue-600 "
+                  >
                     <input
                       type="email"
                       name=""

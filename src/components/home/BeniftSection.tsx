@@ -31,7 +31,7 @@ const BenefitsSection = () => {
 
   return (
     <div className=" ">
-      <section className="py-24  max-w-7xl mx-auto text-center px-4">
+      <section className="py-28  max-w-7xl mx-auto text-center px-4">
         <h3 className="text-orange-500 font-semibold">WHY CHOOSE US</h3>
         <h2 className="text-2xl md:text-4xl text-gray-100 font-bold mt-4 mb-14">
           Benefits of Online Tutoring Services With Us

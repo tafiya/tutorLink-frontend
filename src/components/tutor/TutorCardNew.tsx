@@ -62,6 +62,23 @@ const TutorCardNew = ({ tutor }: { tutor: IUser }) => {
      
    
       </div>
+              {/* <div className="flex flex-wrap justify-center gap-12">
+                {tutors?.slice(0, 3).map((tutor: IUser, i: number) => (
+                  <TutorCard key={i} tutor={tutor}></TutorCard>
+                ))}
+              </div> */}
+         
+              <div className=" flex justify-center mt-12">
+                <Link href={'/tutors'}>
+                  <button
+                    className="mt-6 bg-blue-600 shadow-lg shadow-blue-600 hover:bg-blue-700 text-white
+                 font-bold py-3 px-6 rounded-lg transition duration-300 
+                 hover:-translate hover:scale-105 duration-150 ease-in-out"
+                  >
+                    View All
+                  </button>
+                </Link>
+              </div>
     </div>
   );
 };

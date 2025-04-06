@@ -1,7 +1,8 @@
 
 const Parallax = () => {
   return (
-    <section
+    <div className="py-28">
+   <section
       className="relative lg:h-[650px] md:h-[550px] h-[450px]  bg-fixed bg-center bg-cover flex items-center justify-center"
       style={{
         backgroundImage:
@@ -14,6 +15,8 @@ const Parallax = () => {
         </h1>
       </div>
     </section>
+    </div>
+ 
   );
 };
 
