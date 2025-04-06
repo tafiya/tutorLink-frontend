@@ -2,15 +2,15 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function ContactInfo() {
   return (
-    <div className="bg-gray-50 py-16 px-4">
+    <div className=" py-38 px-4">
       <div className="max-w-6xl mx-auto text-center">
         <h3 className="text-orange-500 font-semibold text-lg flex items-center justify-center gap-2">
           📩 Get In Touch
         </h3>
-        <h2 className="text-3xl font-bold text-gray-900 mt-2">
+        <h2 className="text-3xl font-bold text-gray-100 mt-2">
           Let us help you
         </h2>
-        <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
           Our platform is built on the principles of innovation, quality, and inclusivity, aiming to provide a seamless learning experience.
         </p>
       </div>

@@ -3,16 +3,16 @@ import React, { useState } from "react";
 
 const Accordion: React.FC = () => {
   return (
-    <div className="bg-blue-50 ">
+    <div className=" ">
     <section className="relative overflow-hidden max-w-7xl mx-auto pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-              <span className="mb-2 block text-lg font-semibold text-primary">
+              <span className="mb-2 block text-lg font-semibold text-orange-500  ">
                 FAQ
               </span>
-              <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]">
+              <h2 className="text-3xl font-bold text-white sm:text-[40px]/[48px]">
                 Any Questions? Look Here
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
