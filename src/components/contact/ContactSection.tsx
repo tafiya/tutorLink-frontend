@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 export default function ContactSection() {
   return (
-    <div className="bg-blue-50 py-12 px-4 md:px-12 mb-12">
+    <div className="py-28 px-4 md:px-12">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Left Section */}
         <div>
           <h3 className="text-orange-500 font-semibold text-lg">Contact Us</h3>
-          <h2 className="text-3xl font-bold text-gray-900 mt-2">
+          <h2 className="text-3xl font-bold text-gray-100 mt-2">
             Have questions? Dont hesitate to contact us
           </h2>
-          <p className="text-gray-600 mt-4">
+          <p className="text-gray-300 mt-4">
             We are passionate about transforming lives through education.
             Founded with a vision to make learning accessible to all, we believe
             in the power of knowledge to unlock opportunities and shape the
@@ -40,13 +40,13 @@ export default function ContactSection() {
             {/* Star Ratings */}
             <div className="ml-4">
               <div className="flex text-yellow-500">★ ★ ★ ★ ☆</div>
-              <p className="text-gray-700 text-sm">2.5k+ reviews (4.95 of 5)</p>
+              <p className="text-gray-100 text-sm">2.5k+ reviews (4.95 of 5)</p>
             </div>
           </div>
         </div>
 
         {/* Right Section - Contact Form */}
-        <div className="bg-white p-8 shadow-lg rounded-xl">
+        <div className="bg-white p-8 shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-lg hover:shadow-blue-600 overflow-hidden transition-transform hover:scale-105 rounded-xl">
           <h3 className="text-xl font-semibold text-gray-900">Get In Touch</h3>
           <form className="mt-6">
             <div className="space-y-4">

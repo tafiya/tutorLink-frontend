@@ -2,7 +2,7 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function ContactInfo() {
   return (
-    <div className=" py-38 px-4">
+    <div className=" pt-38 px-4">
       <div className="max-w-6xl mx-auto text-center">
         <h3 className="text-orange-500 font-semibold text-lg flex items-center justify-center gap-2">
           📩 Get In Touch
@@ -18,7 +18,7 @@ export default function ContactInfo() {
       {/* Contact Info Cards */}
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {/* Main Office */}
-        <div className="bg-white p-6 shadow-md rounded-xl text-center">
+        <div className="bg-white p-6 shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-lg hover:shadow-blue-600 overflow-hidden transition-transform hover:scale-105 rounded-xl text-center">
           <div className="flex justify-center">
             <div className="bg-blue-600 text-white p-4 rounded-full">
               <FaMapMarkerAlt size={24} />
@@ -34,7 +34,7 @@ export default function ContactInfo() {
         </div>
 
         {/* Email Address */}
-        <div className="bg-white p-6 shadow-md rounded-xl text-center">
+        <div className="bg-white p-6 shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-lg hover:shadow-blue-600 overflow-hidden transition-transform hover:scale-105 rounded-xl text-center">
           <div className="flex justify-center">
             <div className="bg-blue-600 text-white p-4 rounded-full">
               <FaEnvelope size={24} />
@@ -49,7 +49,7 @@ export default function ContactInfo() {
         </div>
 
         {/* Phone Number */}
-        <div className="bg-white p-6 shadow-md rounded-xl text-center">
+        <div className="bg-white p-6 shadow-[0px_0px_20px_theme(colors.blue.600)] hover:shadow-lg hover:shadow-blue-600 overflow-hidden transition-transform hover:scale-105 rounded-xl text-center">
           <div className="flex justify-center">
             <div className="bg-blue-600 text-white p-4 rounded-full">
               <FaPhone size={24} />
