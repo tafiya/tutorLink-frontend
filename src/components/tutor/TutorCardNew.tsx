@@ -62,12 +62,6 @@ const TutorCardNew = ({ tutor }: { tutor: IUser }) => {
      
    
       </div>
-              {/* <div className="flex flex-wrap justify-center gap-12">
-                {tutors?.slice(0, 3).map((tutor: IUser, i: number) => (
-                  <TutorCard key={i} tutor={tutor}></TutorCard>
-                ))}
-              </div> */}
-         
               <div className=" flex justify-center mt-12">
                 <Link href={'/tutors'}>
                   <button

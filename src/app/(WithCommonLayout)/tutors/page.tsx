@@ -14,7 +14,7 @@ const TutorsPage = async () => {
       <div className=" border rounded-lg">
       <h2 className=" text-xl sm:text-2xl md:text-3xl xl:text-4xl font-semibold leading-snug text-gray-100 text-center">
             Find your <span className=" text-blue-600 ">Perfect </span>
-            <br />
+        
             Tutor
           </h2>
           <h2 className=" text-center text-blue-600 text-lg font-medium mt-3">

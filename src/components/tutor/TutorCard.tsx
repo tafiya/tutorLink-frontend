@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const TutorCardNew = ({ tutor }: { tutor: IUser }) => {
   return (
-    <div className="bg-gray-100 shadow-[0px_0px_20px_theme(colors.blue.600)] dark:bg-gray-700 relative w-96 overflow-hidden hover:shadow-lg hover:shadow-blue-600 group rounded-xl p-5 transition-all duration-500 transform">
+    <div className="bg-gray-100 shadow-[0px_0px_20px_theme(colors.blue.600)] dark:bg-gray-700 relative  w-96 overflow-hidden hover:shadow-lg hover:shadow-blue-600 group rounded-xl p-5 transition-all duration-500 transform">
       <div className=" flex justify-between mb-3">
         <div className="">
           <span className="text-sm text-yellow-500">
@@ -31,7 +31,7 @@ const TutorCardNew = ({ tutor }: { tutor: IUser }) => {
           <h1 className="text-gray-600 text-xl text-center uppercase dark:text-gray-200 font-bold">
             {tutor?.name}
           </h1>
-          <div className=" flex justify-center items-center gap-2 text-sm">
+          <div className="flex justify-center items-center text-black gap-2 text-sm">
             <MapPin size={15} color="#f72b2b" />{' '}
            
             {tutor?.address ? tutor.address.split(',').pop()?.trim() : 'N/A'}
