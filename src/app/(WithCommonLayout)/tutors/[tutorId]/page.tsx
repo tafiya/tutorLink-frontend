@@ -13,9 +13,9 @@ const TutorDetails = async ({
 
   return (
     <div className="max-w-7xl py-28 w-full mx-auto">
-      <div className="flex flex-wrap  ">
+    
         <ProfileSection tutor={tutor} />
-      </div>
+      
     </div>
   );
 };
