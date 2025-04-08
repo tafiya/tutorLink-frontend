@@ -10,9 +10,9 @@ const TutorsPage = async () => {
   const tutors = data?.data;
   return (
     <div>
-      <div className="w-full flex justify-center items-center bg-[#eff6ff] h-64 md:h-80 ">
-        <div className=" mt-16">
-          <h2 className=" text-xl sm:text-2xl md:text-3xl xl:text-4xl font-semibold leading-snug text-balance text-center">
+      <div className="w-full max-w-7xl mx-auto pt-38 ">
+      <div className=" border rounded-lg">
+      <h2 className=" text-xl sm:text-2xl md:text-3xl xl:text-4xl font-semibold leading-snug text-gray-100 text-center">
             Find your <span className=" text-blue-600 ">Perfect </span>
             <br />
             Tutor
@@ -21,7 +21,9 @@ const TutorsPage = async () => {
             {" "}
             All The Tutors
           </h2>
-        </div>
+      </div>
+      
+      
       </div>
       <Suspense
         fallback={

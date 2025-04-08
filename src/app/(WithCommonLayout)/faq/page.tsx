@@ -4,18 +4,18 @@ import React, { useState } from "react";
 const Accordion: React.FC = () => {
   return (
     <div className=" ">
-    <section className="relative overflow-hidden max-w-7xl mx-auto pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
+    <section className="relative overflow-hidden max-w-7xl mx-auto pb-12 pt-28 md:pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
-            <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
+            <div className="mx-auto mb-[40px] max-w-[520px] text-center lg:mb-10">
               <span className="mb-2 block text-lg font-semibold text-orange-500  ">
                 FAQ
               </span>
               <h2 className="text-3xl font-bold text-white sm:text-[40px]/[48px]">
                 Any Questions? Look Here
               </h2>
-              <p className="text-base text-body-color dark:text-dark-6">
+              <p className="text-base text-gray-300">
                 There are many variations of passages of Lorem Ipsum available
                 but the majority have suffered alteration in some form.
               </p>
@@ -25,7 +25,7 @@ const Accordion: React.FC = () => {
 
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-1/2 ">
-            <AccordionItem 
+            <AccordionItem
               header="How do I find a tutor?"
               text="You can browse our list of expert tutors by subject, grade level, or availability. Use filters to refine your search based on hourly rate, ratings, and location. Once you find a suitable tutor, you can send a hire request."
             />
