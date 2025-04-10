@@ -16,7 +16,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { CardContent } from '@/components/ui/card';
 import {
+  Banknote,
+  BookDown,
   BookOpenText,
+  CalendarCheck2,
+  CalendarDays,
   CheckCircle,
   Clock3,
   GraduationCap,
@@ -133,24 +137,12 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
             </div>
 
             <h2 className="text-2xl mb-1 font-bold mt-3"> {tutor?.name} </h2>
+            <h2 className="text-sm mb-2 font-semibold">
+              Rating : {tutor.averageRating}
+            </h2>
           </CardContent>
         </div>
         <div>
-          <div className="text-end flex justify-end items-center gap-3">
-            <Button
-              onClick={handleRequest}
-              disabled={requestStatus === 'pending'}
-            >
-              {requestStatus === 'pending'
-                ? 'Request Pending...'
-                : 'Send Request'}
-            </Button>
-            <Button onClick={() => setIsDialogOpen(true)}>
-              <MessageCircle />
-              Send Review
-            </Button>
-            {/* <Button> More </Button> */}
-          </div>
           <Tabs defaultValue="about" className="w-full">
             <TabsList className="grid w-full grid-cols-3 bg-blue-400 text-gray-100">
               <TabsTrigger value="about" className="text-gray-100 flex gap-2">
@@ -160,25 +152,26 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
                 Subjects
               </TabsTrigger>
               <TabsTrigger value="available" className="text-gray-100">
-              Available
+                Available
               </TabsTrigger>
             </TabsList>
             <TabsContent value="about">
               <div className="my-6">
                 <h2 className="text-xl font-semibold flex gap-3">
-                  <UserRound />
+                  <UserRound color="#155dfc" size={30} />
                   About
                 </h2>
 
-                <p className=" text-gray-400 py-2">{tutor?.bio}</p>
+                <p className=" text-gray-300 py-2">{tutor?.bio}</p>
               </div>
+              <hr className=" border-blue-400 " />
               <div className="my-6 flex gap-12 ">
                 <div>
                   <h2 className="text-xl font-semibold flex gap-3">
-                    <GraduationCap />
+                    <GraduationCap color="#155dfc" size={30} />
                     Education
                   </h2>
-                  <ul className="list-disc marker:text-green-600 px-6 marker:text-2xl">
+                  <ul className="list-disc text-gray-300 marker:text-green-600 px-6 marker:text-2xl">
                     <li>
                       Master`s in Mathematics, university of
                       Dhaka.(2020-2022){' '}
@@ -190,49 +183,96 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold flex gap-3">
-                  <Clock3 />
+                    <Clock3 color="#155dfc" size={30} />
                     Experience
                   </h2>
-                  <ul className="list-disc marker:text-green-600 px-6 marker:text-2xl">
+                  <ul className="list-disc text-gray-300 marker:text-green-600 px-6 marker:text-2xl">
                     <li>5+ years of tutoring experience </li>
                     <li>Worked with 50+ students</li>
                   </ul>
                 </div>
               </div>
-              <hr className=" text-blue-600" />
+              <hr className=" border-blue-400 " />
               <div className="my-6">
-                <h2 className="text-xl font-semibold flex gap-3">
-                <UserSearch />
+                <h2 className="text-xl font-semibold pb-2 flex gap-3">
+                  <UserSearch color="#155dfc" size={30} />
                   Contact
                 </h2>
-                <h2 className="text-sm mb-1 flex gap-2 font-bold mt-1"><PhoneCall /> {tutor?.phone} </h2>
-                <h2 className="text-sm mb-1 flex gap-2 font-bold mt-1"><Mail /> {tutor?.email} </h2>
-                <p className=" text-gray-400 py-2 flex gap-2"><MapPinHouse />{tutor.address}</p>
-              </div>
-            </TabsContent>
-            <TabsContent value="Subjects">
-            <div className="mt-6">
-            <h2 className="text-xl font-semibold flex gap-3">
-            <BookOpenText />
-                    Subjects that I am able to Teach
-                  </h2>
-                <h2 className="text-lg mb-2 font-semibold">
-                  Expected Minimum Salary : <span>{tutor?.price}</span> Tk/Month
+                <h2 className="text-sm text-gray-300 mb-1 flex gap-2 font-bold mt-1">
+                  <PhoneCall size={18} /> {tutor?.phone}{' '}
                 </h2>
-            
-                <h2 className="text-base mb-2 font-semibold">
-                  {tutor.subjects}
+                <h2 className="text-sm text-gray-300 mb-1 flex gap-2 font-bold mt-1">
+                  <Mail size={18} /> {tutor?.email}{' '}
                 </h2>
-                <h2 className="text-sm mb-2 font-semibold">
-                  Rating : {tutor.averageRating}
+                <h2 className=" text-gray-300 mt-1 flex gap-2">
+                  <MapPinHouse size={18} />
+                  {tutor.address}
                 </h2>
               </div>
             </TabsContent>
-            <TabsContent value="available"></TabsContent>
+            <TabsContent value="Subjects" className="">
+              <div className="mt-6">
+                <h2 className="text-xl font-semibold flex gap-3">
+                  <BookOpenText color="#155dfc" size={30} />
+                  Subjects that I am able to Teach
+                </h2>
+                <div className="flex flex-wrap gap-2  my-4">
+                  {tutor?.subjects?.split(',').map((subject, index) => (
+                    <span
+                      key={index}
+                      className="rounded-full border border-blue-600 px-5 py-1 text-base font-semibold text-blue-600 inset-shadow-sm inset-shadow-blue-500"
+                    >
+                      {subject.trim()}
+                    </span>
+                  ))}
+                </div>
+                <h2 className="text-xl font-semibold flex gap-3">
+                  <Banknote color="#155dfc" size={30} />
+                  Expected Minimum Salary
+                </h2>
+                <h2 className=" my-4 ml-5 ">
+                  <span className="rounded-full bg-red-600 px-3 py-1 text-lg text-white">
+                    {' '}
+                    {tutor?.price} Tk
+                  </span>
+                  /Month
+                </h2>
+              </div>
+            </TabsContent>
+            <TabsContent value="available">
+              <div className=" mt-6">
+                <h2 className="text-xl font-semibold flex gap-3">
+                  <CalendarCheck2 color="#155dfc" size={30} />
+                  Available Time Slots
+                </h2>
+                <div className=" py-5 bg-blue-800/20 flex gap-3 md:w-1/2 rounded-lg px-5 my-4">
+                  <CalendarDays color="#155dfc" size={18} />{' '}
+                  {new Date(tutor?.availability.from).toLocaleDateString()} -{' '}
+                  {new Date(tutor?.availability.to).toLocaleDateString()}
+                </div>
+              </div>
+            </TabsContent>
           </Tabs>
+          <div className="text-end flex justify-center mt-6 items-center gap-3">
+            <Button
+              variant="outline"
+              className="bg-blue-600 text-lg text-white w-1/2  hover:text-blue-600 border-blue-600 flex items-center gap-2 "
+              onClick={handleRequest}
+              disabled={requestStatus === 'pending'}
+            >
+              <BookDown size={30} />
+              {requestStatus === 'pending' ? 'Booking Pending...' : 'Book Now'}
+            </Button>
+
+            {/* <Button> More </Button> */}
+          </div>
         </div>
       </div>
       <div className="mt-6">
+        <Button onClick={() => setIsDialogOpen(true)}>
+          <MessageCircle />
+          Send Review
+        </Button>
         <h2 className="text-lg font-semibold">Reviews</h2>
         {reviews?.length > 0 ? (
           reviews.map((review: IReview, index) => (

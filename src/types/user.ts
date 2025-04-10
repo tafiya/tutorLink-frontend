@@ -12,6 +12,10 @@ export interface IUser  {
       gradeLevel?: string; 
       averageRating?: number;
       profilePicture?: string;
+      availability?: {
+        from: Date; // Start date of availability
+        to: Date; // End date of availability
+      };
       isBlocked?: boolean;
       isDeleted?: boolean;
       createdAt?: Date;
