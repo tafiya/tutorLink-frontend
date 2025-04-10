@@ -9,7 +9,7 @@
 //     return { success: false, message: "Error posting review" };
 //   }
 // };
-export const postReview = async (tutorId: string, rating: number, reviewText: string) => {
+export const postReview = async (tutorId: string,name:string, rating: number, reviewText: string) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/reviews`, {
         method: "POST",

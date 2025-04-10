@@ -26,7 +26,7 @@ import {
   GraduationCap,
   Mail,
   MapPinHouse,
-  MessageCircle,
+  MessageSquareDiff,
   PhoneCall,
   UserRound,
   UserSearch,
@@ -36,8 +36,11 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { getReviews, postReview } from '@/services/review/reviewService';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import StarRating from '@/components/common/StarRating';
+
 export interface IReview {
   tutorId: string;
+  name: string;
   rating: number;
   reviewText: string;
 }
@@ -46,6 +49,7 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [rating, setRating] = useState(5);
   const [reviewText, setReviewText] = useState('');
+  const [reviewerName, setreviewerName] = useState('');
   const [reviews, setReviews] = useState([]);
   const user = useUser();
   const router = useRouter();
@@ -69,6 +73,7 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
   }
 
   //  submit review section
+
   const handleReviewSubmit = async () => {
     if (!user?.user?.email) {
       toast.error('User Information is not available.');
@@ -80,7 +85,12 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
       return;
     }
 
-    const response = await postReview(tutor?._id, rating, reviewText);
+    const response = await postReview(
+      tutor?._id,
+      reviewerName,
+      rating,
+      reviewText,
+    );
     if (response.success) {
       toast.success('Review submitted successfully!');
       setIsDialogOpen(false);
@@ -119,7 +129,12 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
 
   return (
     <div>
-      <div className="  p-4 border shadow-lg rounded-lg  justify-center items-center text-white gap-12">
+      <div className=" shadow-[0px_0px_10px_theme(colors.blue.400)] rounded-lg bg-blue-800/10 p-8 mb-16">
+        <h2 className=" text-xl sm:text-2xl md:text-3xl xl:text-4xl font-semibold leading-snug text-gray-100 text-center">
+          {tutor?.name}`s <span className=" text-blue-600 ">Details</span>
+        </h2>
+      </div>
+      <div className="  p-4 border border-black shadow-[0px_0px_15px_rgba(37,99,235,0.6)] rounded-lg  justify-center items-center text-white gap-12">
         <div className="w-full mx-auto max-w-sm bg- text-white rounded-xl shadow-lg">
           <CardContent className="flex flex-col items-center ">
             <div className="relative w-48 h-48">
@@ -137,12 +152,10 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
             </div>
 
             <h2 className="text-2xl mb-1 font-bold mt-3"> {tutor?.name} </h2>
-            <h2 className="text-sm mb-2 font-semibold">
-              Rating : {tutor.averageRating}
-            </h2>
+            <StarRating rating={tutor?.averageRating} />
           </CardContent>
         </div>
-        <div>
+        <div className=" mt-4">
           <Tabs defaultValue="about" className="w-full">
             <TabsList className="grid w-full grid-cols-3 bg-blue-400 text-gray-100">
               <TabsTrigger value="about" className="text-gray-100 flex gap-2">
@@ -268,29 +281,56 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
           </div>
         </div>
       </div>
-      <div className="mt-6">
-        <Button onClick={() => setIsDialogOpen(true)}>
-          <MessageCircle />
-          Send Review
-        </Button>
-        <h2 className="text-lg font-semibold">Reviews</h2>
-        {reviews?.length > 0 ? (
-          reviews.map((review: IReview, index) => (
-            <div key={index} className="border p-3 rounded mt-2">
-              <p className="text-Base">{review.reviewText}</p>
-              <p className="text-sm">Rating: {review.rating}/5</p>
-            </div>
-          ))
-        ) : (
-          <p className="text-gray-500">No reviews yet.</p>
-        )}
+      <div className="mt-16 shadow-[0px_0px_10px_theme(colors.blue.400)] rounded-lg bg-blue-800/20 p-8">
+        <div className=" flex justify-between items-center">
+          <h2 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-semibold leading-snug text-gray-100 ">
+            Student Reviews
+          </h2>
+          <Button
+            variant="outline"
+            className="bg-blue-600 text-base text-white   hover:text-blue-600 border-blue-600 flex items-center gap-2 "
+            onClick={() => setIsDialogOpen(true)}
+          >
+            <MessageSquareDiff />
+            Add Review
+          </Button>
+        </div>
+        <div className=" bg-gray-200 p-5 rounded-lg mt-6">
+          {reviews?.length > 0 ? (
+            reviews.map((review: IReview, index) => (
+              <div key={index} className="border p-3 rounded mt-2">
+                <div className=" flex justify-between ">
+                  <h2 className=" text-lg uppercase font-semibold mb-3">
+                    {review?.name}
+                  </h2>
+                  <StarRating rating={review?.rating} />
+                </div>
+                <p className="text-Base">{review?.reviewText}</p>
+                <hr className=" my-2 border-blue-800 border" />
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500 text-center text-xl">
+              No reviews yet...
+            </p>
+          )}
+        </div>
       </div>
       {/* review dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent>
+        <DialogContent className="  bg-[#0d142d] shadow-[0px_0px_10px_theme(colors.blue.400)] border-black">
           <DialogHeader>
-            <DialogTitle>Write a Review</DialogTitle>
+            <DialogTitle className="text-gray-100">Write a Review</DialogTitle>
           </DialogHeader>
+          <label className="text-gray-100">Enter Name</label>
+          <Input
+            type="text"
+            value={reviewerName}
+            onChange={(e) => setreviewerName(e.target.value)}
+            placeholder="Enter Your Name"
+            className="mb-3 text-white"
+          />
+          <label className="text-gray-100">Ratings</label>
           <Input
             type="number"
             min="1"
@@ -298,16 +338,23 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
             value={rating}
             onChange={(e) => setRating(Number(e.target.value))}
             placeholder="Rating (1-5)"
-            className="mb-3"
+            className="mb-3 text-white"
           />
+          <label className="text-gray-100">Write your feedback</label>
           <Textarea
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
             placeholder="Write your review here..."
-            className="mb-3"
+            className="mb-3 text-white"
           />
-          <DialogFooter>
-            <Button onClick={handleReviewSubmit}>Submit Review</Button>
+          <DialogFooter className=" justify-center items-center flex">
+            <Button
+              variant="outline"
+              className="bg-blue-600 text-base text-white   hover:text-blue-600 border-blue-600 flex items-center gap-2 "
+              onClick={handleReviewSubmit}
+            >
+              Submit Review
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
