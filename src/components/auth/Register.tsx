@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { registerUser } from "@/services/AuthServices";
-import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { GiTeacher } from "react-icons/gi";
-import { PiStudentBold } from "react-icons/pi";
-import { Button } from "../ui/button";
+import { registerUser } from '@/services/AuthServices';
+import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { GiTeacher } from 'react-icons/gi';
+import { PiStudentBold } from 'react-icons/pi';
+import { Button } from '../ui/button';
 import {
   Form,
   FormControl,
@@ -17,24 +17,24 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { Label } from "../ui/label";
+} from '../ui/form';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { Label } from '../ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { registrationSchema } from "./RegistrationValidation";
-import Link from "next/link";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
-import { Calendar } from "../ui/calendar";
-import { DateRange } from "react-day-picker";
+} from '../ui/select';
+import { registrationSchema } from './RegistrationValidation';
+import Link from 'next/link';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { format } from 'date-fns';
+import { CalendarIcon } from 'lucide-react';
+import { Calendar } from '../ui/calendar';
+import { DateRange } from 'react-day-picker';
 
 const RegisterForm = () => {
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
@@ -52,17 +52,17 @@ const RegisterForm = () => {
     setUploading(true);
     try {
       const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", "my_preset"); // 🔹 Replace with your Cloudinary preset
+      formData.append('file', file);
+      formData.append('upload_preset', 'my_preset'); // 🔹 Replace with your Cloudinary preset
 
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/demnpqwx3/image/upload",
-        formData
+        'https://api.cloudinary.com/v1_1/demnpqwx3/image/upload',
+        formData,
       );
       setUploading(false);
       return response.data.secure_url; // ✅ Get the uploaded image URL
     } catch (error) {
-      console.error("Image upload failed", error);
+      console.error('Image upload failed', error);
       setUploading(false);
       return null;
     }
@@ -72,18 +72,18 @@ const RegisterForm = () => {
     if (e.target.files?.[0]) {
       const imageUrl = await uploadImage(e.target.files[0]);
       if (imageUrl) {
-        form.setValue("profilePicture", imageUrl);
+        form.setValue('profilePicture', imageUrl);
       }
     }
   };
   // password part
-  const password = form.watch("password");
-  const passwordConfirm = form.watch("passwordConfirm");
+  const password = form.watch('password');
+  const passwordConfirm = form.watch('passwordConfirm');
 
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    if (data.role === "Tutor") {
+    if (data.role === 'Tutor') {
       const formattedData = {
         ...data,
         availability: {
@@ -96,7 +96,7 @@ const RegisterForm = () => {
         const res = await registerUser(formattedData);
         if (res?.success) {
           toast.success(res?.message);
-          router.push("/login");
+          router.push('/login');
         } else {
           toast.error(res?.message);
         }
@@ -109,7 +109,7 @@ const RegisterForm = () => {
         const res = await registerUser(data);
         if (res?.success) {
           toast.success(res?.message);
-          router.push("/");
+          router.push('/');
         } else {
           toast.error(res?.message);
         }
@@ -121,29 +121,29 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="md:w-[530px] w-[350px]  overflow-hidden rounded-lg border border-[#066ccb] p-4 shadow-xl bg-white dark:border-zinc-700 dark:bg-zinc-900">
+    <div className="md:w-[530px] w-[350px] shadow-[0px_0px_20px_theme(colors.blue.600)]  overflow-hidden rounded-lg border border-[#066ccb] p-4 bg-gray-200 dark:border-zinc-700 dark:bg-zinc-900">
       <div className="flex select-none gap-2 border-b p-2.5 *:flex-1 *:rounded-md *:border *:p-2 *:text-center  *:shadow-inner *:outline-none dark:border-[#066ccb]  *:dark:border-[#066ccb]">
         <button
           onClick={() => setSignUp(false)}
           className={`${
             !signUp
-              ? "bg-[#066ccb] text-white flex justify-center items-center gap-2"
-              : "bg-white text-[#066ccb] border-[#066ccb] flex justify-center items-center gap-2"
+              ? 'bg-[#066ccb] text-white flex justify-center items-center gap-2'
+              : 'bg-white text-[#066ccb] border-[#066ccb] flex justify-center items-center gap-2'
           }`}
         >
-          {" "}
-          <PiStudentBold size={"2rem"} />
+          {' '}
+          <PiStudentBold size={'2rem'} />
           Register as Student
         </button>
         <button
           onClick={() => setSignUp(true)}
           className={`${
             signUp
-              ? "bg-[#066ccb] text-white flex justify-center items-center gap-2"
-              : "bg-white text-[#066ccb] border-[#066ccb] flex justify-center items-center gap-2"
+              ? 'bg-[#066ccb] text-white flex justify-center items-center gap-2'
+              : 'bg-white text-[#066ccb] border-[#066ccb] flex justify-center items-center gap-2'
           }`}
         >
-          <GiTeacher size={"2rem"} />
+          <GiTeacher size={'2rem'} />
           Register as Tutor
         </button>
       </div>
@@ -152,7 +152,7 @@ const RegisterForm = () => {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className={`${
-              signUp ? "h-full duration-300" : "invisible h-0 opacity-0"
+              signUp ? 'h-full duration-300' : 'invisible h-0 opacity-0'
             } space-y-3 sm:space-y-3`}
           >
             <div className=" flex flex-wrap justify-between ">
@@ -168,7 +168,7 @@ const RegisterForm = () => {
                         placeholder="name"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -187,7 +187,7 @@ const RegisterForm = () => {
                         placeholder="email"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -208,7 +208,7 @@ const RegisterForm = () => {
                         placeholder="Address"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -228,7 +228,7 @@ const RegisterForm = () => {
                         placeholder="01XXXXXXXXX"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -250,7 +250,7 @@ const RegisterForm = () => {
                         placeholder="Enter subjects separated by commas"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -269,7 +269,7 @@ const RegisterForm = () => {
                         placeholder="Enter grade levels"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -324,7 +324,7 @@ const RegisterForm = () => {
                         placeholder="Tell us a little bit about yourself"
                         className="resize-none border-[#066ccb]"
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
 
@@ -342,22 +342,22 @@ const RegisterForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base">Availability</FormLabel>
-                    <FormControl>
+                    <FormControl className="">
                       <Popover>
                         <PopoverTrigger asChild>
                           <Button
                             variant="outline"
-                            className="w-full justify-start text-left font-normal border-[#066ccb]"
+                            className="w-full justify-start bg-gray-200 text-left font-normal border-[#066ccb]"
                           >
                             <CalendarIcon className="mr-2 h-4 w-4" />
                             {dateRange?.from ? (
                               dateRange.to ? (
                                 <>
-                                  {format(dateRange.from, "LLL dd, y")} -{" "}
-                                  {format(dateRange.to, "LLL dd, y")}
+                                  {format(dateRange.from, 'LLL dd, y')} -{' '}
+                                  {format(dateRange.to, 'LLL dd, y')}
                                 </>
                               ) : (
-                                format(dateRange.from, "LLL dd, y")
+                                format(dateRange.from, 'LLL dd, y')
                               )
                             ) : (
                               <span>Pick a date range</span>
@@ -400,7 +400,7 @@ const RegisterForm = () => {
                         onChange={(e) =>
                           field.onChange(Number(e.target.value) || 0)
                         } // 🔹 Convert to number
-                        value={field.value ?? ""} // Ensures empty state is handled correctly
+                        value={field.value ?? ''} // Ensures empty state is handled correctly
                       />
                     </FormControl>
                     <FormMessage />
@@ -418,10 +418,11 @@ const RegisterForm = () => {
                     <FormLabel className=" text-base">Password</FormLabel>
                     <FormControl>
                       <Input
+                        placeholder="Password"
                         className=" border-[#066ccb]"
                         type="password"
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -438,10 +439,11 @@ const RegisterForm = () => {
                     </FormLabel>
                     <FormControl>
                       <Input
+                        placeholder="Confirm Password"
                         className=" border-[#066ccb] "
                         type="password"
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
 
@@ -459,24 +461,16 @@ const RegisterForm = () => {
               className=" w-full bg-[#066ccb] hover:bg-blue-600/40 hover:text-[#066ccb] text-lg hover:border-[#066ccb]"
               disabled={uploading}
             >
-              {isSubmitting ? "Registering...." : "Register"}
+              {isSubmitting ? 'Registering....' : 'Register'}
             </Button>
           </form>
-          {/* <p className=" text-base pt-4">
-            Already have an account?{" "}
-            <Link
-              href="/login"
-              className=" text-lg font-semibold text-[#066ccb] hover:underline "
-            >
-              Login
-            </Link>
-          </p> */}
+       
         </Form>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className={`${
-              signUp ? "h-0 opacity-0" : "h-full duration-300"
+              signUp ? 'h-0 opacity-0' : 'h-full duration-300'
             } space-y-3 sm:space-y-3`}
           >
             <div className=" flex flex-wrap justify-between ">
@@ -492,7 +486,7 @@ const RegisterForm = () => {
                         placeholder="name"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -511,7 +505,7 @@ const RegisterForm = () => {
                         placeholder="email"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -532,7 +526,7 @@ const RegisterForm = () => {
                         placeholder="Address"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -552,7 +546,7 @@ const RegisterForm = () => {
                         placeholder="01XXXXXXXXX"
                         required
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -605,10 +599,11 @@ const RegisterForm = () => {
                     <FormLabel className=" text-base">Password</FormLabel>
                     <FormControl>
                       <Input
+                       placeholder='Password'
                         className=" border-[#066ccb]"
                         type="password"
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -625,10 +620,11 @@ const RegisterForm = () => {
                     </FormLabel>
                     <FormControl>
                       <Input
+                       placeholder='Confirm Password'
                         className=" border-[#066ccb] "
                         type="password"
                         {...field}
-                        value={field.value || ""}
+                        value={field.value || ''}
                       />
                     </FormControl>
 
@@ -647,13 +643,13 @@ const RegisterForm = () => {
               className=" w-full bg-[#066ccb] hover:bg-blue-600/40 hover:text-[#066ccb] text-lg hover:border-[#066ccb]"
               disabled={uploading}
             >
-              {isSubmitting ? "Registering...." : "Register"}
+              {isSubmitting ? 'Registering....' : 'Register'}
             </Button>
           </form>
         </Form>
-  
+
         <p className=" text-base mt-16">
-          Already have an account?{" "}
+          Already have an account?{' '}
           <Link
             href="/login"
             className=" text-lg font-semibold text-[#066ccb] hover:underline "

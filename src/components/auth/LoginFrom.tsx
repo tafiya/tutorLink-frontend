@@ -84,7 +84,7 @@ const LoginFrom = () => {
   };
 
   return (
-    <div className="  border-[#066ccb] border rounded-lg  lg:w-[400px] w-[350px] p-12 shadow-xl">
+    <div className=" shadow-[0px_0px_20px_theme(colors.blue.600)] border-[#066ccb] border rounded-lg  lg:w-[400px] w-[350px] p-12">
       <p className="text-4xl text-[#066ccb] font-semibold border-b pb-6">
         Login
       </p>
@@ -171,7 +171,7 @@ const LoginFrom = () => {
         </Button>
       </div>
       <p className=" text-sm pt-4 text-gray-300">
-        Dont have account?{' '}
+        Don`t have account?{' '}
         <Link
           href="/register"
           className=" text-base font-semibold text-[#066ccb] hover:underline "
