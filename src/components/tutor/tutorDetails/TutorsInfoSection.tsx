@@ -71,15 +71,19 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
   if (!tutor) {
     return <p>Loading tutor data...</p>;
   }
-
+  // open dialog
+  const handleOpenDialog = async () => {
+    if (!user?.user?.email) {
+      toast.error('Log in First');
+      router.push('/login');
+      return;
+    } else {
+      setIsDialogOpen(true);
+    }
+  };
   //  submit review section
 
   const handleReviewSubmit = async () => {
-    if (!user?.user?.email) {
-      toast.error('User Information is not available.');
-      router.push('/login');
-      return;
-    }
     if (!reviewText.trim()) {
       toast.error('Review cannot be empty!');
       return;
@@ -289,7 +293,7 @@ const ProfileSection = ({ tutor }: { tutor: IUser | null }) => {
           <Button
             variant="outline"
             className="bg-blue-600 text-base text-white   hover:text-blue-600 border-blue-600 flex items-center gap-2 "
-            onClick={() => setIsDialogOpen(true)}
+            onClick={handleOpenDialog}
           >
             <MessageSquareDiff />
             Add Review
