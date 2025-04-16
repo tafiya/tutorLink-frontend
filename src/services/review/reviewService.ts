@@ -17,7 +17,7 @@ export const postReview = async (tutorId: string,name:string, rating: number, re
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          tutorId,
+          tutorId,name,
           rating,reviewText
         }),
       });
