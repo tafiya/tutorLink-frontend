@@ -22,6 +22,7 @@ import { loginUser } from '@/services/AuthServices';
 import { useUser } from '@/context/UserContext';
 import { PiStudentBold } from 'react-icons/pi';
 import { GiTeacher } from 'react-icons/gi';
+import { MoveLeft } from 'lucide-react';
 
 const LoginFrom = () => {
   const form = useForm({
@@ -177,6 +178,14 @@ const LoginFrom = () => {
           className=" text-base font-semibold text-[#066ccb] hover:underline "
         >
           Register
+        </Link>
+      </p>
+      <p className=' flex items-center justify-center mt-6'>
+        <Link
+          href="/"
+          className="flex gap-3 items-center text-base font-semibold text-gray-400 hover:text-[#066ccb] "
+        >
+          <MoveLeft /> Back to Home
         </Link>
       </p>
     </div>
