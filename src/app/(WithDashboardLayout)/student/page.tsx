@@ -1,9 +1,11 @@
+
+import Dashboard from '@/components/dashboard/BashboardUI';
 import React from 'react';
 
 const StudentDashboard = () => {
       return (
-            <div>
-                  <h2> Welcome to student</h2>
+            <div className=' '>
+               <Dashboard></Dashboard>
             </div>
       );
 };

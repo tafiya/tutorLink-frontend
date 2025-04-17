@@ -33,8 +33,8 @@ export function NavMain({
   }[];
 }) {
   return (
-    <SidebarGroup>
-      <SidebarGroupLabel className=" text-blue-600  text-xl">Menu</SidebarGroupLabel>
+    <SidebarGroup className="">
+      <SidebarGroupLabel className=" text-blue-600   text-xl">Menu</SidebarGroupLabel>
       <hr className=" py-2" />
       <SidebarMenu>
         {items.map((item) => (

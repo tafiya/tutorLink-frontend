@@ -1,36 +1,36 @@
-import { FaUsers, FaVideo, FaThumbsUp, FaUserFriends } from "react-icons/fa";
+import { FaUsers, FaVideo, FaThumbsUp, FaUserFriends } from 'react-icons/fa';
 
 export default function StatsSection() {
   const stats = [
     {
       icon: <FaUsers className="text-blue-500 text-3xl" />,
-      number: "10K",
-      label: "Successfully Trained",
-      bg: "bg-blue-200",
+      number: '10K',
+      label: 'Successfully Trained',
+      bg: 'bg-blue-200',
     },
     {
       icon: <FaVideo className="text-red-500 text-3xl" />,
-      number: "22K",
-      label: "Courses Completed",
-      bg: "bg-red-50",
+      number: '22K',
+      label: 'Courses Completed',
+      bg: 'bg-red-50',
     },
     {
       icon: <FaThumbsUp className="text-blue-500 text-3xl" />,
-      number: "45K",
-      label: "Satisfaction Rate",
-      bg: "bg-blue-200",
+      number: '45K',
+      label: 'Satisfaction Rate',
+      bg: 'bg-blue-200',
     },
     {
       icon: <FaUserFriends className="text-orange-500 text-3xl" />,
-      number: "55K",
-      label: "Students Community",
-      bg: "bg-orange-50",
+      number: '55K',
+      label: 'Students Community',
+      bg: 'bg-orange-50',
     },
   ];
 
   return (
-
-      <div className=" max-7xl mx-auto flex flex-wrap justify-center items-center gap-12 py-28  text-center">
+    <div className=" max-w-7xl  mx-auto pb-24 pt-12  text-center">
+      <div className=" bg-gray-200 py-12 rounded-lg flex  flex-wrap w-full justify-center items-center gap-12 ">
         {stats.map((stat, index) => (
           <div
             key={index}
@@ -44,6 +44,6 @@ export default function StatsSection() {
           </div>
         ))}
       </div>
-  
+    </div>
   );
 }

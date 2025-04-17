@@ -1,9 +1,10 @@
-import React from "react";
+import Dashboard from '@/components/dashboard/BashboardUI';
+import React from 'react';
 
 const TutorDashboard = async () => {
   return (
     <div>
-      a<h2>welcome to Tutor dashboard</h2>
+      <Dashboard></Dashboard>
     </div>
   );
 };

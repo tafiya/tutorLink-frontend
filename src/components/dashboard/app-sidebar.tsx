@@ -22,7 +22,7 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/student/profile",
+      url: "/student",
       icon: SquareTerminal,
       isActive: true,
     },
@@ -48,7 +48,7 @@ const data = {
   navTutor: [
     {
       title: "Dashboard",
-      url: "/tutor/profile",
+      url: "/tutor",
       icon: SquareTerminal,
       isActive: true,
     },

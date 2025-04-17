@@ -1,54 +1,91 @@
 /* eslint-disable @next/next/no-img-element */
-"use client";
-import { useState } from "react";
+'use client';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 const testimonials = [
   {
-    name: "John Doe",
+    name: 'John Doe',
     message:
-      "TutorLink helped me find an amazing physics tutor! My grades have improved, and I feel much more confident in my studies.",
-    img: "https://randomuser.me/api/portraits/men/1.jpg",
+      'TutorLink helped me find an amazing physics tutor! My grades have improved, and I feel much more confident in my studies.',
+    img: 'https://randomuser.me/api/portraits/men/1.jpg',
   },
   {
-    name: "Jane Smith",
+    name: 'Jane Smith',
     message:
-      "I love how easy it was to book a tutor. The platform is user-friendly, and the tutors are highly qualified!",
-    img: "https://randomuser.me/api/portraits/women/2.jpg",
+      'I love how easy it was to book a tutor. The platform is user-friendly, and the tutors are highly qualified!',
+    img: 'https://randomuser.me/api/portraits/women/2.jpg',
   },
   {
-    name: "Michael Johnson",
+    name: 'Michael Johnson',
     message:
-      "My tutor explained complex math concepts in a way that finally made sense. I wish I had joined earlier!",
-    img: "https://randomuser.me/api/portraits/men/3.jpg",
+      'My tutor explained complex math concepts in a way that finally made sense. I wish I had joined earlier!',
+    img: 'https://randomuser.me/api/portraits/men/3.jpg',
   },
   {
-    name: "Emily Brown",
+    name: 'Emily Brown',
     message:
-      "Great experience overall! The scheduling system is convenient, but I would love more subject options.",
-    img: "https://randomuser.me/api/portraits/women/4.jpg",
+      'Great experience overall! The scheduling system is convenient, but I would love more subject options.',
+    img: 'https://randomuser.me/api/portraits/women/4.jpg',
   },
 ];
 const Testimonial = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === testimonials.length - 1 ? 0 : prev + 1
-    );
-  };
   return (
-    <div className="">
-      <h2 className="text-2xl md:text-4xl font-bold mb-12 text-gray-100 text-center">
-        {" "}
+    <div className=" max-w-7xl mx-auto mb-24">
+      <h3 className="text-orange-500 font-semibold text-center">Testimonial</h3>
+      <h2 className="text-2xl text-gray-100 md:text-4xl font-bold mt-4 mb-10 text-center">
+        {' '}
         Success Stories
       </h2>
-      <div className="relative mb-24 w-full max-w-4xl mx-auto overflow-hidden rounded-lg bg-white shadow-lg p-6">
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={3}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        navigation={{
+          nextEl: '.custom-prev-button',
+          prevEl: '.custom-next-button',
+        }}
+        loop={true}
+        breakpoints={{
+          350: { slidesPerView: 1 },
+          480: { slidesPerView: 1 },
+          640: { slidesPerView: 1 },
+          873: { slidesPerView: 2 },
+          1080: { slidesPerView: 2 },
+          1280: { slidesPerView: 3 },
+        }}
+      >
+        {testimonials.map((testimonial, index) => (
+          <SwiperSlide
+            key={index}
+            className=" py-6 px-3 rounded-md shadow-[0px_0px_20px_theme(colors.blue.600)] my-4 flex flex-col items-center justify-center bg-blue-50"
+          >
+            <img
+              src={testimonial.img}
+              alt={testimonial.name}
+              className="w-16 h-16 rounded-full mb-4 border border-gray-300"
+            />
+            <p className="text-gray-800 text-lg font-semibold">
+              ``{testimonial.message}``
+            </p>
+            <span className="text-gray-600 mt-2">- {testimonial.name}</span>
+          </SwiperSlide>
+        ))}{' '}
+        {/* {tutors.map((tutor: IUser) => (
+            <SwiperSlide key={tutor._id} className="cursor-pointer  ">
+              <TutorCard tutor={tutor}></TutorCard>
+            </SwiperSlide>
+          ))} */}
+      </Swiper>
+      {/* <div className="relative mb-24 w-full max-w-4xl mx-auto overflow-hidden rounded-lg bg-white shadow-lg p-6">
         <div
           className="flex transition-transform duration-700"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -93,7 +130,7 @@ const Testimonial = () => {
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

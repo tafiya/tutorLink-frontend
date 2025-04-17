@@ -39,7 +39,9 @@ const FindTutors = ({ tutors }: { tutors: IUser[] }) => {
     const initialSearchTerm = decodeURIComponent(
       searchParams.get('search') || '',
     );
+    const initialSubject = decodeURIComponent(searchParams.get('subject') || 'All');
     setSearchTerm(initialSearchTerm);
+    setSubject(initialSubject);
   }, [searchParams]);
 
   const filteredTutors = tutors

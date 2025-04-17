@@ -4,11 +4,21 @@ import {
   LogIn,
   ChevronDown,
   ChevronUp,
-  BookOpen,
-  HelpCircle,
   FileText,
-  User,
-  DollarSign,
+  FlaskConical,
+  Calculator,
+  Atom,
+  Globe,
+  Computer,
+  FolderKanban,
+  ChartNoAxesCombined,
+  ChartBarStacked,
+  Columns2,
+  LayoutTemplate,
+  EthernetPort,
+  MonitorCog,
+  LayoutDashboard,
+  LogOut,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -41,42 +51,42 @@ const menuData = [
       {
         title: 'High School',
         links: [
-          { name: 'Mathematics', href: '/tutor', icon: BookOpen },
-          { name: 'Chemistry', href: '/tutor', icon: DollarSign },
-          { name: 'English', href: '/tutor', icon: FileText },
-          { name: 'Physic', href: '/tutor', icon: FileText },
+          { name: 'Mathematics', href: '/tutors', icon: Calculator },
+          { name: 'Chemistry', href: '/tutors', icon: FlaskConical },
+          { name: 'English', href: '/tutors', icon: Globe },
+          { name: 'Physic', href: '/tutors', icon: Atom },
         ],
       },
       {
         title: 'College',
         links: [
-          { name: 'English', href: '/tutor', icon: HelpCircle },
-          { name: 'Literature', href: '/tutor', icon: FileText },
-          { name: 'Mathematics', href: '/tutor', icon: User },
+          { name: 'English', href: '/tutors', icon: Globe },
+          { name: 'Literature', href: '/tutors', icon: FileText },
+          { name: 'Mathematics', href: '/tutors', icon: Calculator },
         ],
       },
       {
         title: 'University',
         links: [
-          { name: 'Computer', href: '/tutor', icon: HelpCircle },
-          { name: 'Management', href: '/tutor', icon: FileText },
-          { name: 'Statistics', href: '/tutor', icon: User },
-          { name: 'BBA', href: '/tutor', icon: User },
+          { name: 'Computer', href: '/tutor', icon: Computer },
+          { name: 'Management', href: '/tutor', icon: FolderKanban },
+          { name: 'Statistics', href: '/tutor', icon: ChartNoAxesCombined },
+          { name: 'BBA', href: '/tutor', icon: ChartBarStacked },
         ],
       },
       {
         title: 'Basic',
         links: [
-          { name: 'Computer Findamental', href: '/tutor', icon: HelpCircle },
-          { name: 'PowerPoint', href: '/tutor', icon: FileText },
+          { name: 'Computer Fundamental', href: '/tutors', icon: Computer },
+          { name: 'PowerPoint', href: '/tutors', icon: Columns2 },
         ],
       },
       {
         title: 'Technology',
         links: [
-          { name: 'Web Development', href: '/tutor', icon: HelpCircle },
-          { name: 'SQA', href: '/tutors', icon: FileText },
-          { name: 'Wordpress', href: '/tutors', icon: User },
+          { name: 'Web Development', href: '/tutors', icon: LayoutTemplate },
+          { name: 'SQA', href: '/tutors', icon: MonitorCog },
+          { name: 'Wordpress', href: '/tutors', icon: EthernetPort },
         ],
       },
     ],
@@ -173,10 +183,13 @@ const Navbar = () => {
                             {section.links.map((link, idx) => (
                               <Link
                                 key={idx}
-                                href={link.href}
+                                href={`/tutors?subject=${link.name}`}
                                 className="flex items-center gap-2 text-sm p-2 hover:text-blue-600 hover:bg-blue-100 rounded"
                               >
-                                <link.icon size={16} />
+                                <link.icon
+                                  className=" text-blue-600"
+                                  size={16}
+                                />
                                 {link.name}
                               </Link>
                             ))}
@@ -287,22 +300,40 @@ const Navbar = () => {
                   <AvatarFallback>User</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuLabel>{user.role}</DropdownMenuLabel>
+              <DropdownMenuContent className=' bg-black border-blue-600 shadow-[0px_0px_5px_theme(colors.blue.600)]'>
+                <DropdownMenuLabel className=' items-center text-gray-100 '>{user.role}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
                 {user.role == 'Student' ? (
                   <DropdownMenuItem>
-                    <Link href="/student/profile">DashBoard</Link>
+                    <Link
+                      href="/student"
+                      className=" flex gap-1 items-center text-lg text-blue-600 "
+                    >
+                      {' '}
+                      <LayoutDashboard className=" text-blue-600" />
+                      DashBoard
+                    </Link>
                   </DropdownMenuItem>
                 ) : (
                   <DropdownMenuItem>
                     {' '}
-                    <Link href="/tutor/profile">DashBoard</Link>
+                    <Link
+                      className=" flex gap-1 items-center text-base text-blue-600 "
+                      href="/tutor"
+                    >
+                      {' '}
+                      <LayoutDashboard className=" text-blue-600" />
+                      DashBoard
+                    </Link>
                   </DropdownMenuItem>
                 )}
 
-                <DropdownMenuItem onClick={handleLogOut}>
+                <DropdownMenuItem
+                  className=" flex gap-1 items-center text-base text-blue-600 "
+                  onClick={handleLogOut}
+                >
+                  <LogOut className=" text-blue-600" />
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
