@@ -18,7 +18,7 @@ const FeatureTutors: React.FC<Props> = ({ tutors }) => {
   return (
 
     <div
-      className="max-w-7xl mx-auto border py-12 px-3 rounded-lg border-black shadow-[0px_0px_15px_rgba(37,99,235,0.6)] 
+      className="max-w-7xl mx-auto border py-12 px-4 rounded-lg border-black shadow-[0px_0px_15px_rgba(37,99,235,0.6)] 
   "
     >
       <div className="">

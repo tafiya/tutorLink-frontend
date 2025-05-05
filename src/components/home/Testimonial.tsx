@@ -34,7 +34,7 @@ const testimonials = [
 ];
 const Testimonial = () => {
   return (
-    <div className=" max-w-7xl mx-auto mb-24">
+    <div className=" max-w-7xl px-4 mx-auto mb-24">
       <h3 className="text-orange-500 font-semibold text-center">Testimonial</h3>
       <h2 className="text-2xl text-gray-100 md:text-4xl font-bold mt-4 mb-10 text-center">
         {' '}

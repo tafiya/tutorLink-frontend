@@ -31,12 +31,12 @@ export default function EduAllSection() {
 
       {/* Right Section: About EduAll */}
       <div className="mt-10 lg:w-1/2">
-        <h3 className="text-orange-500 font-semibold">About TutorLink</h3>
+        <h3 className="text-orange-500 font-semibold">About TeachNest</h3>
         <h2 className="md:text-4xl text-2xl font-bold mt-2 text-gray-100">
           The Place Where You Can Achieve
         </h2>
         <p className="mt-4 text-gray-300">
-          Welcome to TutorLink, where learning knows no bounds. Whether youre a
+          Welcome to TeachNest, where learning knows no bounds. Whether youre a
           student, professional, or lifelong learner...
         </p>
         <div className="mt-6 space-y-4">

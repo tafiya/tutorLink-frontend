@@ -4,8 +4,8 @@ import tution2 from "../../assets/bannerNew.jpg";
 import Link from "next/link";
 export default function PersonalizedLearningSection() {
   return (
-    <section className=" pb-28 max-w-7xl mx-auto ">
-      <div className="flex flex-col md:flex-row items-center">
+    <section className=" pb-28 max-w-7xl mx-auto px-4 ">
+      <div className="flex flex-col gap-12 md:flex-row items-center">
         {/* Image Section */}
         <div className="relative w-full md:w-1/2 flex justify-center">
           <div className="relative">

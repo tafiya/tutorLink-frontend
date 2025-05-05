@@ -30,7 +30,7 @@ export default function Community() {
 
   return (
 
-      <div className=" max-7xl mx-auto flex flex-col justify-center items-center pb-28  text-center">
+      <div className=" max-7xl mx-auto px-4 flex flex-col justify-center items-center pb-28  text-center">
           <h3 className="text-orange-500 font-semibold text-center">Community </h3>
       <h2 className="text-2xl text-gray-100 md:text-4xl font-bold mt-4 mb-16 text-center">
         {" "}

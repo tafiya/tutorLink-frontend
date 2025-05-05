@@ -14,7 +14,7 @@ const BlogArticles = async () => {
         {" "}
         Recent Articles
       </h2>
-      <div className="flex flex-wrap justify-center gap-12">
+      <div className="flex flex-wrap justify-center px-4 gap-12">
         {tutors.slice(0, 3).map((blog: IBlog, i: number) => (
           <BlogCard key={i} blog={blog}></BlogCard>
         ))}
