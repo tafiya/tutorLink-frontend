@@ -1,10 +1,10 @@
-# TutorLink 🎓 - Find & Connect with the Best Tutors
+# TeachNest 🎓 - Find & Connect with the Best Tutors
 
-**TutorLink 🎓** is an online platform where students can find and connect with qualified tutors, book sessions, and manage their learning journey. Tutors can create profiles, list subjects, set availability, and manage bookings. The platform ensures seamless communication, secure payments, and easy booking management.
+**TeachNest 🎓** is an online platform where students can find and connect with qualified tutors, book sessions, and manage their learning journey. Tutors can create profiles, list subjects, set availability, and manage bookings. The platform ensures seamless communication, secure payments, and easy booking management.
 
 ## Project Overview
 
-TutorLink 🎓 is designed to bridge the gap between students and tutors, helping students find the best tutors based on their specific learning needs. Tutors can showcase their expertise, set their own rates, and manage availability. The platform is built with role-based authentication and integrates secure payment systems for bookings.
+TeachNest 🎓 is designed to bridge the gap between students and tutors, helping students find the best tutors based on their specific learning needs. Tutors can showcase their expertise, set their own rates, and manage availability. The platform is built with role-based authentication and integrates secure payment systems for bookings.
 
 ## Core Features
 
