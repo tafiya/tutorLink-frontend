@@ -9,7 +9,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "TutorLink",
+  title: "TeachNest",
   description: "A online tutor platform",
 };
 
