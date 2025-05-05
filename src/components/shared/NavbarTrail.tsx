@@ -26,7 +26,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { IoCloseOutline } from 'react-icons/io5';
-import logo from '../../assets/TutorLink.png';
+import logo from '../../assets/technext.png';
+import logo2 from '../../assets/TeachNest_Logo.png';
 import navImage from '../../assets/navimage.jpg';
 import { Button } from '../ui/button';
 import { useUser } from '@/context/UserContext';
@@ -136,11 +137,19 @@ const Navbar = () => {
             onClick={() => setMenu(true)}
             className="text-3xl cursor-pointer lg:hidden"
           />
-
+          {scrolling ? (
+            <Link href={'/'}>
+              <Image src={logo} alt="logo" height={200} width={200} />
+            </Link>
+          ) : (
+            <Link href={'/'}>
+              <Image src={logo2} alt="logo" height={200} width={200} />
+            </Link>
+          )}
           {/* Logo */}
-          <Link href={'/'}>
-            <Image src={logo} alt="logo" height={80} width={80} />
-          </Link>
+          {/* <Link href={'/'}>
+            <Image src={logo} alt="logo" height={200} width={200} />
+          </Link> */}
         </div>
 
         {/* Desktop Navigation */}
@@ -300,8 +309,10 @@ const Navbar = () => {
                   <AvatarFallback>User</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className=' bg-black border-blue-600 shadow-[0px_0px_5px_theme(colors.blue.600)]'>
-                <DropdownMenuLabel className=' items-center text-gray-100 '>{user.role}</DropdownMenuLabel>
+              <DropdownMenuContent className=" bg-black border-blue-600 shadow-[0px_0px_5px_theme(colors.blue.600)]">
+                <DropdownMenuLabel className=" items-center text-gray-100 ">
+                  {user.role}
+                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
                 {user.role == 'Student' ? (

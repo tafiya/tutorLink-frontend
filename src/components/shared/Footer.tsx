@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
+import logo from '../../assets/technext.png';
 const Footer = () => {
   return (
     <section className="py-10 bg-blue-50 sm:pt-16 lg:pt-24">
@@ -9,13 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
           {/* Logo and Social Media Links */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-            <Image
-              // className="w-auto h-9"
-              src="https://res.cloudinary.com/demnpqwx3/image/upload/v1741507615/TutorLink_ffs63d.png"
-              alt="Logo"
-              width={120}
-              height={200}
-            />
+          <Image src={logo} alt="logo" height={200} width={200} />
 
             <p className="text-base leading-relaxed text-gray-600 mt-7">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
